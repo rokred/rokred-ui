@@ -1,1 +1,2 @@
-Welcome to Rokred UI. Feel free to press and twist as many buttons and knobs as you can find.
+Welcome to Rokred UI. I assume you are allowed being here, right? (🧐). 
+This UI will connect to the Rokred Backend Service, thus proving if the app actually works on a basic level.
