@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ui:ReactiveContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:RokredUI.ViewModels;assembly=RokredUI"
+    xmlns:controls="clr-namespace:RokredUI.Controls"
+    xmlns:ui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    BackgroundColor="{StaticResource DarkGrey}"
+    x:TypeArguments="vm:NewOpinionFirstStepViewModel"
+    x:Class="RokredUI.Views.NewOpinionFirstStepView">
+
+    <ScrollView>
+
+        <StackLayout VerticalOptions="Start" Margin="10,50,10,0" Spacing="0">
+            <controls:RokredLabel
+                IsBold="true"
+                FontSize="35"
+                Margin="10,0,10,10"
+                Text="NEW OPINION"
+                TextColor="{StaticResource HighlightBlue}"
+                HorizontalOptions="Center" VerticalOptions="Start" />
+
+            <ffimageloadingsvg:SvgCachedImage
+                Aspect="AspectFit" VerticalOptions="Start"
+                HorizontalOptions="Fill" Margin="0"
+                Source="sporting-icon.svg" HeightRequest="70" />
+
+            <controls:RokredLabel
+                IsBold="true"
+                FontSize="22"
+                Margin="10,10"
+                Text="SPORTING EVENT"
+                TextColor="{StaticResource HighlightBlue}"
+                HorizontalOptions="Center" VerticalOptions="Start" />
+
+            <controls:RokredLabel
+                IsBold="false"
+                FontSize="16"
+                Margin="10,0"
+                Text="First tell us the neutral event, before we get to your golden opinion."
+                TextColor="{StaticResource HighlightBlue}"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                VerticalOptions="Start" />
+
+            <controls:RokredTextBox
+                Margin="10,20,10,10"
+                Text="THE CRICKET WORLD CUP 2019" />
+
+            <controls:RokredLabel
+                IsBold="true"
+                FontSize="22"
+                Margin="10,0,10,10"
+                Text="[NOT MATCHED]"
+                IsVisible="{Binding HasSubject}"
+                TextColor="{StaticResource HighlightBlue}"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="Center"
+                VerticalOptions="Start" />
+
+            <StackLayout Spacing="0" Margin="10,20"
+                         IsVisible="{Binding HasSubject}">
+
+                <ffimageloadingsvg:SvgCachedImage
+                    Aspect="AspectFit" VerticalOptions="Start"
+                    HorizontalOptions="Fill" Margin="10"
+                    Source="soapbox-icon.svg" HeightRequest="70" />
+
+                <controls:RokredButton Margin="20, 5, 20, 10">
+
+                    <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
+
+                        <controls:RokredLabel
+                            IsBold="true"
+                            FontSize="22"
+                            Margin="20"
+                            Text="APPROACH SOAPBOX"
+                            TextColor="{StaticResource HighlightGrey}"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            VerticalOptions="Start" />
+
+                    </Frame>
+
+                </controls:RokredButton>
+
+                <controls:RokredLabel
+                    IsBold="false"
+                    FontSize="16"
+                    Margin="20,10"
+                    TextColor="{StaticResource HighlightGold}"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    VerticalOptions="Start" />
+
+            </StackLayout>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</ui:ReactiveContentPage>
