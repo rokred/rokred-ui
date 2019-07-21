@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>sporting-icon</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Editing-Neutral-thing" transform="translate(-154.000000, -116.000000)">
+            <g id="OpinionEntry" transform="translate(27.000000, 116.000000)">
+                <g id="Sporting-Event">
+                    <g id="sporting-icon" transform="translate(127.000000, 0.000000)">
+                        <circle id="Oval" fill="#80B9FF" cx="34" cy="34" r="34"></circle>
+                        <path d="M48,20.624 L30.1538462,12 L30.1538462,51.6 L25.6923077,51.6 L25.6923077,47.794 C21.6992308,48.564 19,49.972 19,51.6 C19,54.02 25.0007692,56 32.3846154,56 C39.7684615,56 45.7692308,54.02 45.7692308,51.6 C45.7692308,49.422 40.9507692,47.618 34.6153846,47.266 L34.6153846,27.356 L48,20.624 L48,20.624 Z" id="Shape" fill="#282828"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
