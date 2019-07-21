@@ -11,7 +11,7 @@ namespace RokredUI
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new HomeView());
+            MainPage = new NavigationPage(new NewOpinionFirstStepView());
         }
 
         protected override void OnStart()

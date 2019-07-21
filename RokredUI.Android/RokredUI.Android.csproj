@@ -56,6 +56,7 @@
     <PackageReference Include="Refit" Version="4.7.9" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
     <PackageReference Include="Xamarin.Android.Support.Design" Version="28.0.0.1" />
     <PackageReference Include="Xamarin.Android.Support.v7.AppCompat" Version="28.0.0.1" />
@@ -107,6 +108,25 @@
       <Project>{322DF1FA-EC9E-4DFC-B3C4-F796DA12D839}</Project>
       <Name>RokredUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\RokredUI\Resources\Fonts\futura-bold.ttf">
+      <Link>Assets\futura-bold.ttf</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Fonts\futura-medium.ttf">
+      <Link>Assets\futura-medium.ttf</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\review-icon.svg">
+      <Link>Assets\review-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\soapbox-icon.svg">
+      <Link>Assets\soapbox-icon.svg</Link>
+    </Content>
+    <None Include="..\RokredUI\Resources\Images\sporting-icon.svg">
+      <Link>Assets/sporting-icon.svg</Link>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

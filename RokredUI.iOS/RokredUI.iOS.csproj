@@ -130,6 +130,7 @@
     <PackageReference Include="Refit" Version="4.7.9" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
     <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
   </ItemGroup>
@@ -139,5 +140,22 @@
       <Project>{322DF1FA-EC9E-4DFC-B3C4-F796DA12D839}</Project>
       <Name>RokredUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\RokredUI\Resources\Fonts\futura-bold.ttf">
+      <Link>Resources\futura-bold.ttf</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Fonts\futura-medium.ttf">
+      <Link>Resources\futura-medium.ttf</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\review-icon.svg">
+      <Link>Resources\review-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\soapbox-icon.svg">
+      <Link>Resources\soapbox-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\sporting-icon.svg">
+      <Link>Resources\sporting-icon.svg</Link>
+    </Content>
   </ItemGroup>
 </Project>
