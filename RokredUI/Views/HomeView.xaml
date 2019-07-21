@@ -1,24 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ui:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-                        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                        xmlns:vm="clr-namespace:RokredUI.ViewModels;assembly=RokredUI"
-                        xmlns:controls="clr-namespace:RokredUI.Controls"
-                        xmlns:ui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
-                        x:TypeArguments="vm:HomeViewModel"
-                        x:Class="RokredUI.Views.HomeView">
-    <StackLayout>
-        <controls:RokredButton Margin="20">
-            <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}" HasShadow="False">
-                <controls:RokredLabel
-                    IsBold="true"
-                    FontSize="18"
-                    Text="NEW OPINION"
-                    TextColor="{StaticResource HighlightGrey}"
-                    HorizontalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    VerticalOptions="Start" />
-            </Frame>
-        </controls:RokredButton>
-    </StackLayout>
+<ui:ReactiveContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:RokredUI.ViewModels;assembly=RokredUI"
+    xmlns:controls="clr-namespace:RokredUI.Controls"
+    xmlns:ui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+    x:TypeArguments="vm:HomeViewModel"
+    x:Class="RokredUI.Views.HomeView">
+    <ScrollView>
+        <StackLayout>
+            <controls:RokredLabel
+                IsBold="true"
+                FontSize="22"
+                Margin="10,10"
+                Text="ROKRED UI"
+                TextColor="{StaticResource HighlightBlue}"
+                HorizontalOptions="Center" VerticalOptions="Start" />
+
+            <controls:RokredButton Margin="20">
+
+                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}" HasShadow="False">
+
+                    <controls:RokredLabel
+                        IsBold="true"
+                        FontSize="18"
+                        Text="NEW OPINION"
+                        TextColor="{StaticResource HighlightGrey}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start" />
+                </Frame>
+
+            </controls:RokredButton>
+
+            <controls:RokredButton Margin="20">
+
+                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightBlue}" HasShadow="False">
+
+                    <controls:RokredLabel
+                        IsBold="true"
+                        FontSize="18"
+                        Text="OPINIONS"
+                        TextColor="{StaticResource HighlightGrey}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start" />
+
+                </Frame>
+
+            </controls:RokredButton>
+
+        </StackLayout>
+
+    </ScrollView>
+
 </ui:ReactiveContentPage>
