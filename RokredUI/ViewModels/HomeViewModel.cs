@@ -2,6 +2,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using ReactiveUI;
 using RokredUI.Services;
+using RokredUI.Views;
 using Xamarin.Forms;
 
 namespace RokredUI.ViewModels
@@ -23,12 +24,12 @@ namespace RokredUI.ViewModels
 
         private void GoToOpinions()
         {
-            _navigationService.NavigateToOpinionsView();
+            _navigationService.NavigateTo(new OpinionsView());
         }
 
         private void GoToNewOpinion()
         {
-            _navigationService.NavigateToNewOpinionView();
+            _navigationService.NavigateTo(new NewOpinionFirstStepView());
         }
     }
 }

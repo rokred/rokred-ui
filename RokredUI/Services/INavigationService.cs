@@ -4,7 +4,6 @@ namespace RokredUI.Services
 {
     public interface INavigationService
     {
-        void NavigateToNewOpinionView();
-        void NavigateToOpinionsView();
+        void NavigateTo<T>(T page) where T : Page;
     }
 }

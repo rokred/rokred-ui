@@ -12,14 +12,6 @@ namespace RokredUI.Views
         public NewOpinionFirstStepView()
         {
             InitializeComponent();
-
-            BindingContext = new NewOpinionFirstStepViewModel();
-
-            this.WhenActivated(dispose =>
-            {
-                this.BindCommand(ViewModel, vm => vm.EnterOpinionCommand, v => v.EnterOpinionEntry)
-                    .DisposeWith(dispose);
-            });
         }
     }
 }

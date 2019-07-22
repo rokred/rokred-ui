@@ -8,16 +8,10 @@ namespace RokredUI.Services
     public class NavigationService : INavigationService
     {
         private INavigation NavigationContext => Application.Current.MainPage.Navigation;
-
-
-        public void NavigateToNewOpinionView()
+        
+        public void NavigateTo<T>(T page) where T : Page
         {
-            NavigationContext.PushAsync(new NewOpinionFirstStepView());
-        }
-
-        public void NavigateToOpinionsView()
-        {
-            NavigationContext.PushAsync(new OpinionsView());
+            NavigationContext.PushAsync(page);
         }
     }
 }

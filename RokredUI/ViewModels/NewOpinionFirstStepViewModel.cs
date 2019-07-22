@@ -8,17 +8,5 @@ namespace RokredUI.ViewModels
 {
     public class NewOpinionFirstStepViewModel: ReactiveObject
     {
-        public ReactiveCommand<Unit, Unit> EnterOpinionCommand { get; }
-        
-
-        public NewOpinionFirstStepViewModel()
-        {
-           
-            EnterOpinionCommand = ReactiveCommand.Create(EnterOpinion, Observable.Return(false));
-        }
-
-        private void EnterOpinion()
-        {
-        }
     }
 }
