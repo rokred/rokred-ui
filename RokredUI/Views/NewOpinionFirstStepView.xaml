@@ -60,15 +60,14 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Start" />
 
-            <StackLayout Spacing="0" Margin="10,20"
-                         IsVisible="{Binding HasSubject}">
-
+            <StackLayout Spacing="0" Margin="10,20">
+                
                 <ffimageloadingsvg:SvgCachedImage
                     Aspect="AspectFit" VerticalOptions="Start"
                     HorizontalOptions="Fill" Margin="10"
                     Source="soapbox-icon.svg" HeightRequest="70" />
 
-                <controls:RokredButton Margin="20, 5, 20, 10">
+                <controls:RokredButton x:Name="EnterOpinionEntry" Margin="20, 5, 20, 10">
 
                     <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using RokredUI.Controls;
 using RokredUI.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace RokredUI
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new NewOpinionFirstStepView());
+            MainPage = new NavigationPage(new HomeView());
         }
 
         protected override void OnStart()

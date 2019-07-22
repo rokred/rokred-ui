@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:vm="clr-namespace:RokredUI.ViewModels;assembly=RokredUI"
     xmlns:controls="clr-namespace:RokredUI.Controls"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
     xmlns:ui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
     x:TypeArguments="vm:HomeViewModel"
     x:Class="RokredUI.Views.HomeView">
@@ -18,7 +19,7 @@
                 TextColor="{StaticResource HighlightBlue}"
                 HorizontalOptions="Center" VerticalOptions="Start" />
 
-            <controls:RokredButton Margin="20">
+            <controls:RokredButton x:Name="NewOpinionButton" Margin="20">
 
                 <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}" HasShadow="False">
 
@@ -34,7 +35,7 @@
 
             </controls:RokredButton>
 
-            <controls:RokredButton Margin="20">
+            <controls:RokredButton x:Name="OpinionsButton" Margin="20">
 
                 <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightBlue}" HasShadow="False">
 

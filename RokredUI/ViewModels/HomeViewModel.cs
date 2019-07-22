@@ -1,11 +1,12 @@
 using System.Reactive;
+using System.Reactive.Linq;
 using ReactiveUI;
 using RokredUI.Services;
 using Xamarin.Forms;
 
 namespace RokredUI.ViewModels
 {
-    public class HomeViewModel : ReactiveObject
+    public class HomeViewModel : BaseViewModel
     {
         private readonly INavigationService _navigationService;
 
@@ -16,8 +17,8 @@ namespace RokredUI.ViewModels
         public HomeViewModel()
         {
             _navigationService = DependencyService.Get<INavigationService>();
-            NewOpinionCommand = ReactiveCommand.Create(GoToNewOpinion);
-            OpinionsCommand = ReactiveCommand.Create(GoToOpinions);
+            NewOpinionCommand = ReactiveCommand.Create(GoToNewOpinion, Observable.Return(true));
+            OpinionsCommand = ReactiveCommand.Create(GoToOpinions, Observable.Return(true));
         }
 
         private void GoToOpinions()

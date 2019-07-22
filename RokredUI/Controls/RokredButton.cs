@@ -1,120 +1,55 @@
 using System;
-using System.Threading.Tasks;
+using System.Reactive.Linq;
+using System.Reactive.Threading.Tasks;
+using System.Windows.Input;
+using ReactiveUI;
 using Xamarin.Forms;
 
 namespace RokredUI.Controls
 {
-    public class RokredButton: ContentView
+    public class RokredButton : ContentView
     {
-        public delegate void TouchDownDelegate();
-        public delegate void TouchUpDelegate();
-
-        public event TouchDownDelegate TouchDown;
-        public event TouchUpDelegate TouchUp;
+        private TapGestureRecognizer TapRecognizer { get; } = new TapGestureRecognizer();
 
         public RokredButton()
         {
-            GestureRecognizers.Add(new TapGestureRecognizer()
-            {
-                Command = new Command(OnTapped),
-                CommandParameter = TappedCommandParameter
-            });
+            TapRecognizer.Tapped += TappedCommandOnTapped;
+            GestureRecognizers.Add(TapRecognizer);
         }
 
-        public void FireTouchUpEvent()
+        private void TappedCommandOnTapped(object sender, EventArgs e)
         {
-            TouchUp?.Invoke();
-            AnimateTouchUp().ConfigureAwait(false);
+            this.ScaleTo(0.95f, 150, Easing.CubicInOut).ToObservable()
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(async x =>
+                {
+                    await this.ScaleTo(1f, 200, Easing.CubicInOut);
+                    Command.Execute(CommandParameter);
+                });
         }
 
-        public void FireTouchDownEvent()
-        {
-            TouchDown?.Invoke();
-            AnimateTouchDown().ConfigureAwait(false);
-        }
-
-        private void OnTapped()
-        {
-            if (IsEnabled)
-                TappedCommand?.Execute(TappedCommandParameter);
-        }
-
-        private async Task AnimateTouchDown()
-        {
-            try
-            {
-             //   await this.ScaleTo(1.05, 75, Easing.CubicInOut);
-                await this.ScaleTo(0.95f, 150, Easing.CubicInOut);
-            }
-            catch (Exception ex)
-            {
-                Scale = 0.95f;
-            }
-        }
-
-        private async Task AnimateTouchUp()
-        {
-            try
-            {
-              //  await this.ScaleTo(1.05, 150, Easing.CubicInOut);
-                await this.ScaleTo(1f, 200, Easing.CubicInOut);
-            }
-            catch (Exception ex)
-            {
-                Scale = 1f;
-            }
-
-        }
-
-        protected void TappedCommandParameterChanged(object val)
-        {
-        }
-
-
-        protected void TappedCommandChanged(Command val)
-        {
-
-        }
-
-        protected void OnCornerRadiusChanged(float value)
-        {
-
-        }
-        
-        public static readonly BindableProperty TappedCommandParameterProperty =
+        public static readonly BindableProperty CommandParameterProperty =
             BindableProperty.Create(
-                "TappedCommandParameter",
+                nameof(CommandParameter),
                 typeof(object),
-                typeof(RokredButton),
-                default(object),
-                propertyChanged: (bindable, oldValue, newValue) =>
-                {
-                    var thisControl = (RokredButton)bindable;
-                    thisControl.TappedCommandParameterChanged((object)newValue);
-                });
+                typeof(RokredButton));
 
-        public object TappedCommandParameter
+        public object CommandParameter
         {
-            get => (object)GetValue(TappedCommandParameterProperty);
-            set => SetValue(TappedCommandParameterProperty, value);
+            get => GetValue(CommandParameterProperty);
+            set => SetValue(CommandParameterProperty, value);
         }
 
-        public static readonly BindableProperty TappedCommandProperty =
+        public static readonly BindableProperty CommandProperty =
             BindableProperty.Create(
-                "TappedCommand",
-                typeof(Command),
-                typeof(RokredButton),
-                default(Command),
-                propertyChanged: (bindable, oldValue, newValue) =>
-                {
-                    var thisControl = (RokredButton)bindable;
-                    thisControl.TappedCommandChanged((Command)newValue);
-                });
+                nameof(Command),
+                typeof(ICommand),
+                typeof(RokredButton));
 
-        public Command TappedCommand
+        public ICommand Command
         {
-            get => (Command)GetValue(TappedCommandProperty);
-            set => SetValue(TappedCommandProperty, value);
+            get => (ICommand) GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
         }
     }
 }

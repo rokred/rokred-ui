@@ -12,7 +12,16 @@ namespace RokredUI.Views
         public HomeView()
         {
             InitializeComponent();
+            
             BindingContext = new HomeViewModel();
+            
+            this.WhenActivated(disposable =>
+            {
+                this.BindCommand(ViewModel, vm => vm.NewOpinionCommand, v => v.NewOpinionButton)
+                    .DisposeWith(disposable);
+                this.BindCommand(ViewModel, vm => vm.OpinionsCommand, v => v.OpinionsButton)
+                    .DisposeWith(disposable);
+            });
         }
     }
 }

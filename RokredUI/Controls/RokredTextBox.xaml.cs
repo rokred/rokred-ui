@@ -4,12 +4,13 @@ using Xamarin.Forms;
 
 namespace RokredUI.Controls
 {
-    public partial class RokredTextBox : ISelectableItem
+    public partial class RokredTextBox
     {
         public RokredTextBox()
         {
             InitializeComponent();
-            TappedCommandParameter = this;
+            
+                CommandParameter= this;
 
             OnTextChanged(Text);
         }
@@ -43,8 +44,8 @@ namespace RokredUI.Controls
 
         public string BoundPropertyStringName
         {
-            get { return (string)GetValue(BoundPropertyStringNameProperty); }
-            set { SetValue(BoundPropertyStringNameProperty, value); }
+            get => (string)GetValue(BoundPropertyStringNameProperty);
+            set => SetValue(BoundPropertyStringNameProperty, value);
         }
 
         public static readonly BindableProperty TextProperty =
@@ -62,8 +63,8 @@ namespace RokredUI.Controls
 
         public string Text
         {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
+            get => (string)GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
     }
 
