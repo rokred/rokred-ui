@@ -67,7 +67,7 @@
                     HorizontalOptions="Fill" Margin="10"
                     Source="soapbox-icon.svg" HeightRequest="70" />
 
-                <controls:RokredButton x:Name="EnterOpinionEntry" Margin="20, 5, 20, 10">
+                <controls:RokredButton Margin="20, 5, 20, 10">
 
                     <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
 

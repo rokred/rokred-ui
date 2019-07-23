@@ -25,4 +25,8 @@
     <None Remove="Resources\Images\sporting-icon.svg" />
     <EmbeddedResource Include="Resources\Images\sporting-icon.svg" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services" />
+  </ItemGroup>
 </Project>

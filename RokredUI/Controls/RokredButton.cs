@@ -24,7 +24,7 @@ namespace RokredUI.Controls
                 .Subscribe(async x =>
                 {
                     await this.ScaleTo(1f, 200, Easing.CubicInOut);
-                    Command.Execute(CommandParameter);
+                    Command?.Execute(CommandParameter);
                 });
         }
 
