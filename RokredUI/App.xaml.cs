@@ -1,6 +1,8 @@
 ﻿using System;
+using ReactiveUI;
 using RokredUI.Controls;
 using RokredUI.Services;
+using RokredUI.ViewModels;
 using RokredUI.Views;
 using Splat;
 using Xamarin.Forms;
@@ -39,7 +41,25 @@ namespace RokredUI
     {
         public AppBootstrapper()
         {
+            RegisterServices();
+            RegisterViews();
+        }
+
+        private static void RegisterViews()
+        {
+            Locator.CurrentMutable.Register(() => new NewOpinionFirstStepView(),
+                typeof(IViewFor<NewOpinionFirstStepViewModel>));
+            
+            Locator.CurrentMutable.Register(() => new OpinionsView(),
+                typeof(IViewFor<OpinionsViewModel>));
+            Locator.CurrentMutable.Register(() => new NewOpinionSecondStepView(),
+                typeof(IViewFor<NewOpinionSecondStepViewModel>));
+        }
+
+        private static void RegisterServices()
+        {
             Locator.CurrentMutable.RegisterLazySingleton(() => new ApiService(), typeof(IApiService));
+            Locator.CurrentMutable.RegisterLazySingleton(() => new NavigationService(), typeof(INavigationService));
         }
     }
 }
