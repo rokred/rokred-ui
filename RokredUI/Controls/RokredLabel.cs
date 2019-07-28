@@ -18,50 +18,50 @@ namespace RokredUI.Controls
         private void OnIsBoldChanged(bool value)
         {
             FontFamily = value ? BoldFont : MediumFont;
-            FontSize = ImplyFontSize ? (value ? BoldSize : MediumSize)
-                : FontSize ;
+            FontSize = ImplyFontSize
+                ? (value ? BoldSize : MediumSize)
+                : FontSize;
         }
 
         public static readonly BindableProperty IsBoldProperty =
             BindableProperty.Create(
-                "IsBold",
+                nameof(IsBold),
                 typeof(bool),
                 typeof(RokredLabel),
                 default(bool),
                 propertyChanged:
                 (b, o, n) =>
                 {
-                    var thisControl = (RokredLabel)b;
-                    thisControl.OnIsBoldChanged((bool)n);
+                    var thisControl = (RokredLabel) b;
+                    thisControl.OnIsBoldChanged((bool) n);
                 });
 
         public bool IsBold
         {
-            get => (bool)GetValue(IsBoldProperty);
+            get => (bool) GetValue(IsBoldProperty);
             set => SetValue(IsBoldProperty, value);
         }
 
         private void OnImplyFontSizeChanged(bool value)
         {
-
         }
 
         private static readonly BindableProperty ImplyFontSizeProperty =
             BindableProperty.Create(
-                "ImplyFontSize",
+                nameof(ImplyFontSize),
                 typeof(bool),
                 typeof(RokredLabel),
                 default(bool),
                 propertyChanged:
                 (b, o, n) =>
                 {
-                    var thisControl = (RokredLabel)b;
-                    thisControl.OnImplyFontSizeChanged((bool)n);
+                    var thisControl = (RokredLabel) b;
+                    thisControl.OnImplyFontSizeChanged((bool) n);
                 });
 
         public bool ImplyFontSize
         {
-            get => (bool)GetValue(ImplyFontSizeProperty);
+            get => (bool) GetValue(ImplyFontSizeProperty);
             set => SetValue(ImplyFontSizeProperty, value);
         }
     }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<controls:RokredButton xmlns="http://xamarin.com/schemas/2014/forms"
-                       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                       xmlns:controls="clr-namespace:RokredUI.Controls"
-                       x:Class="RokredUI.Controls.RokredTextBox">
+<controls:RokredButton
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:RokredUI.Controls"
+    x:Class="RokredUI.Controls.RokredTextBox">
 
     <ContentView BackgroundColor="{StaticResource HighlightGrey}">
 
         <Frame CornerRadius="10" HasShadow="False">
 
             <controls:RokredLabel
-                x:Name="PART_Label"
+                x:Name="OpinionLabel"
                 IsBold="true"
                 FontSize="26"
                 Margin="20"
@@ -22,4 +22,5 @@
         </Frame>
 
     </ContentView>
+
 </controls:RokredButton>
