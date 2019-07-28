@@ -10,94 +10,101 @@
     BackgroundColor="{StaticResource DarkGrey}"
     x:TypeArguments="vm:NewOpinionFirstStepViewModel"
     x:Class="RokredUI.Views.NewOpinionFirstStepView">
-
     <ScrollView>
+        <Grid>
+            <StackLayout VerticalOptions="Start" Margin="10,50,10,0" Spacing="0" x:Name="OpinionContainer">
 
-        <StackLayout VerticalOptions="Start" Margin="10,50,10,0" Spacing="0">
-            <controls:RokredLabel
-                IsBold="true"
-                FontSize="35"
-                Margin="10,0,10,10"
-                Text="NEW OPINION"
-                TextColor="{StaticResource HighlightBlue}"
-                HorizontalOptions="Center" VerticalOptions="Start" />
+                <controls:RokredLabel
+                    IsBold="true"
+                    FontSize="35"
+                    Margin="10,0,10,10"
+                    Text="NEW OPINION"
+                    TextColor="{StaticResource HighlightBlue}"
+                    HorizontalOptions="Center" VerticalOptions="Start" />
 
-            <ffimageloadingsvg:SvgCachedImage
-                Aspect="AspectFit" VerticalOptions="Start"
-                HorizontalOptions="Fill" Margin="0"
-                Source="sporting-icon.svg" HeightRequest="70" />
-
-            <controls:RokredLabel
-                IsBold="true"
-                FontSize="22"
-                Margin="10,10"
-                Text="SPORTING EVENT"
-                TextColor="{StaticResource HighlightBlue}"
-                HorizontalOptions="Center" VerticalOptions="Start" />
-
-            <controls:RokredLabel
-                IsBold="false"
-                FontSize="16"
-                Margin="10,0"
-                Text="First tell us the neutral event, before we get to your golden opinion."
-                TextColor="{StaticResource HighlightBlue}"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"
-                VerticalOptions="Start" />
-
-            <controls:RokredTextBox
-                Margin="10,20,10,10"
-                Text="THE CRICKET WORLD CUP 2019" />
-
-            <controls:RokredLabel
-                IsBold="true"
-                FontSize="22"
-                Margin="10,0,10,10"
-                Text="[NOT MATCHED]"
-                IsVisible="{Binding HasSubject}"
-                TextColor="{StaticResource HighlightBlue}"
-                HorizontalTextAlignment="Center"
-                HorizontalOptions="Center"
-                VerticalOptions="Start" />
-
-            <StackLayout Spacing="0" Margin="10,20">
-                
                 <ffimageloadingsvg:SvgCachedImage
                     Aspect="AspectFit" VerticalOptions="Start"
-                    HorizontalOptions="Fill" Margin="10"
-                    Source="soapbox-icon.svg" HeightRequest="70" />
+                    HorizontalOptions="Fill" Margin="0"
+                    Source="sporting-icon.svg" HeightRequest="70" />
 
-                <controls:RokredButton Margin="20, 5, 20, 10">
-
-                    <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-
-                        <controls:RokredLabel
-                            IsBold="true"
-                            FontSize="22"
-                            Margin="20"
-                            Text="APPROACH SOAPBOX"
-                            TextColor="{StaticResource HighlightGrey}"
-                            HorizontalOptions="Center"
-                            HorizontalTextAlignment="Center"
-                            VerticalOptions="Start" />
-
-                    </Frame>
-
-                </controls:RokredButton>
+                <controls:RokredLabel
+                    IsBold="true"
+                    FontSize="22"
+                    Margin="10,10"
+                    Text="SPORTING EVENT"
+                    TextColor="{StaticResource HighlightBlue}"
+                    HorizontalOptions="Center" VerticalOptions="Start" />
 
                 <controls:RokredLabel
                     IsBold="false"
                     FontSize="16"
-                    Margin="20,10"
-                    TextColor="{StaticResource HighlightGold}"
-                    HorizontalOptions="Center"
+                    Margin="10,0"
+                    Text="First tell us the neutral event, before we get to your golden opinion."
+                    TextColor="{StaticResource HighlightBlue}"
                     HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
                     VerticalOptions="Start" />
 
+                <controls:RokredTextBox
+                    x:Name="OpinionText"
+                    Margin="10,20,10,10" />
+
+                <controls:RokredLabel
+                    IsBold="true"
+                    FontSize="22"
+                    Margin="10,0,10,10"
+                    Text="[NOT MATCHED]"
+                    IsVisible="{Binding HasSubject}"
+                    TextColor="{StaticResource HighlightBlue}"
+                    HorizontalTextAlignment="Center"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start" />
+
+                <StackLayout Spacing="0" Margin="10,20">
+
+                    <ffimageloadingsvg:SvgCachedImage
+                        Aspect="AspectFit" VerticalOptions="Start"
+                        HorizontalOptions="Fill" Margin="10"
+                        Source="soapbox-icon.svg" HeightRequest="70" />
+
+
+                    <controls:RokredButton x:Name="OpinionSandBox" Margin="20, 5, 20, 10">
+
+                        <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
+                            <controls:RokredLabel
+                                IsBold="true"
+                                FontSize="22"
+                                Margin="20"
+                                Text="APPROACH SOAPBOX"
+                                TextColor="{StaticResource HighlightGrey}"
+                                HorizontalOptions="CenterAndExpand"
+                                HorizontalTextAlignment="Center"
+                                VerticalOptions="Start" />
+
+                        </Frame>
+
+                    </controls:RokredButton>
+
+                    <controls:RokredLabel
+                        IsBold="false"
+                        FontSize="16"
+                        Margin="20,10"
+                        TextColor="{StaticResource HighlightGold}"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start" />
+
+                </StackLayout>
             </StackLayout>
-
-        </StackLayout>
-
+            <Grid x:Name="OpinionsOverlay" VerticalOptions="FillAndExpand" Opacity="0" IsVisible="False">
+                <Grid BackgroundColor="Black" Opacity="0.4" x:Name="OverlayFilter">
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <Entry x:Name="OverlayText"
+                       VerticalOptions="End" Margin="16, 8" HorizontalOptions="FillAndExpand" />
+            </Grid>
+        </Grid>
     </ScrollView>
-
 </ui:ReactiveContentPage>

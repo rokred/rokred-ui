@@ -25,7 +25,6 @@
             <controls:RokredLabel IsBold="true"
                                   FontSize="22"
                                   Margin="10,10"
-                                  Text="{Binding Subject}"
                                   TextColor="{StaticResource HighlightBlue}"
                                   HorizontalOptions="Center" VerticalOptions="Start" />
 
@@ -39,7 +38,7 @@
                                   VerticalOptions="Start" />
 
             <controls:RokredTextBox Margin="10,20,10,10"
-                                    Text="{Binding Opinion}" />
+                                    Text="Opinion" />
 
 
             <StackLayout Spacing="0" Margin="10,20">
@@ -68,7 +67,7 @@
                     IsBold="false"
                     FontSize="16"
                     Margin="20,10"
-                    Text="{Binding PrettySubjectUnderSoapboxButton}"
+                    Text="Description"
                     TextColor="{StaticResource HighlightGold}"
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"

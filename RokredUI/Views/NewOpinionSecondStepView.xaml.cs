@@ -1,6 +1,5 @@
 using ReactiveUI.XamForms;
 using RokredUI.ViewModels;
-using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace RokredUI.Views
@@ -11,8 +10,6 @@ namespace RokredUI.Views
         public NewOpinionSecondStepView()
         {
             InitializeComponent();
-            
-            SportingImage.Source = ImageSource.FromResource("RokredUI.Resources.Images.sporting-icon.svg");
         }
     }
 }
