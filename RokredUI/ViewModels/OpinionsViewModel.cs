@@ -12,7 +12,7 @@ using Splat;
 
 namespace RokredUI.ViewModels
 {
-    public class OpinionsViewModel : ReactiveObject
+    public class OpinionsViewModel : BaseViewModel
     {
         public bool Loading { [ObservableAsProperty] get; }
 
@@ -27,8 +27,7 @@ namespace RokredUI.ViewModels
         {
             var resultService = apiService ?? Locator.Current.GetService<IApiService>();
 
-            _opinionsData
-                .Connect()
+            _opinionsData.Connect()
                 .ObserveOn(RxApp.MainThreadScheduler)
                 .Bind(out _opinions)
                 .DisposeMany()

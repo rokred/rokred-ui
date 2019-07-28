@@ -19,12 +19,12 @@ namespace RokredUI.ViewModels
 
         private void GoToOpinions()
         {
-            NavigateTo(new OpinionsView());
+            Navigator.Push<OpinionsViewModel>();
         }
 
         private void GoToNewOpinion()
         {
-            NavigateTo(new NewOpinionFirstStepView());
+            Navigator.Push<NewOpinionFirstStepViewModel>();
         }
     }
 }

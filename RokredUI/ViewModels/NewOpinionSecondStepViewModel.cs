@@ -1,9 +1,9 @@
 using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace RokredUI.ViewModels
 {
-    public class NewOpinionSecondStepViewModel : ReactiveObject
+    public class NewOpinionSecondStepViewModel : BaseViewModel
     {
-        
     }
 }
