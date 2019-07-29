@@ -23,5 +23,7 @@ namespace RokredUI.ViewModels
         {
             Disposables.Dispose();
         }
+
+        public virtual void SetParameter(object parameter) { }
     }
 }

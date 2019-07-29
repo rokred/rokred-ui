@@ -21,6 +21,7 @@ namespace RokredUI.ViewModels
 
         private void GoToSecondStep()
         {
+            Navigator.Push<NewOpinionSecondStepViewModel>("Stop reading this");
         }
 
         private void OpenOverlay()
