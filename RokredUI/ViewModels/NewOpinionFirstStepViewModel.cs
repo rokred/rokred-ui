@@ -15,12 +15,13 @@ namespace RokredUI.ViewModels
         public NewOpinionFirstStepViewModel()
         {
             SearchText = "THE CRICKET WORLD CUP 2019";
-            RequestOverlayCommand = ReactiveCommand.Create(OpenOverlay, Observable.Return(true));
-            ApproachSandBoxCommand = ReactiveCommand.Create(GoToSecondStep, Observable.Return(true));
+            RequestOverlayCommand = ReactiveCommand.Create(OpenOverlay);
+            ApproachSandBoxCommand = ReactiveCommand.Create(GoToSecondStep);
         }
 
         private void GoToSecondStep()
         {
+            Navigator.Push(new NewOpinionSecondStepViewModel {OpinionText = SearchText});
         }
 
         private void OpenOverlay()

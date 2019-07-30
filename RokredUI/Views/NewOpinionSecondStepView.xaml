@@ -37,8 +37,7 @@
                                   HorizontalOptions="Center"
                                   VerticalOptions="Start" />
 
-            <controls:RokredTextBox Margin="10,20,10,10"
-                                    Text="Opinion" />
+            <controls:RokredTextBox x:Name="OpinionText" Margin="10,20,10,10" />
 
 
             <StackLayout Spacing="0" Margin="10,20">

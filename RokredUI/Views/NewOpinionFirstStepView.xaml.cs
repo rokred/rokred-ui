@@ -16,16 +16,13 @@ namespace RokredUI.Views
         public NewOpinionFirstStepView()
         {
             InitializeComponent();
-            
-            BindingContext = new NewOpinionFirstStepViewModel();
 
             this.WhenActivated(disposables =>
             {
                 this.BindCommand(ViewModel, v => v.RequestOverlayCommand, v => v.OpinionText,
                     Observable.Return(OpinionText.Text)).DisposeWith(disposables);
-                
-                this.BindCommand(ViewModel, v => v.ApproachSandBoxCommand, v => v.OpinionSandBox,
-                    Observable.Return(OpinionText.Text)).DisposeWith(disposables);
+                this.BindCommand(ViewModel, v => v.ApproachSandBoxCommand, v => v.OpinionSandBox)
+                    .DisposeWith(disposables);
 
                 this.Bind(ViewModel, vm => vm.SearchText, v => v.OverlayText.Text).DisposeWith(disposables);
                 this.OneWayBind(ViewModel, vm => vm.SearchText, v => v.OpinionText.Text).DisposeWith(disposables);
@@ -35,12 +32,9 @@ namespace RokredUI.Views
                 Observable.FromEventPattern<FocusEventArgs>(
                         x => OverlayText.Unfocused += x,
                         x => OverlayText.Unfocused += x)
-                    .Where(e => e.EventArgs != null )
+                    .Where(e => e.EventArgs != null)
                     .ObserveOn(RxApp.MainThreadScheduler)
-                    .Subscribe(ev =>
-                    {
-                        OpinionContainer.TranslationY = ev.EventArgs.IsFocused ? 200 : 0;
-                    });
+                    .Subscribe(ev => { OpinionContainer.TranslationY = ev.EventArgs.IsFocused ? 200 : 0; });
             });
         }
 
@@ -56,11 +50,7 @@ namespace RokredUI.Views
                         OpinionsOverlay.FadeTo(1, 1000, Easing.CubicOut)
                             .ToObservable()
                             .ObserveOn(RxApp.MainThreadScheduler)
-                            .Subscribe(f =>
-                            {
-                                OverlayText.Focus();
-                            });
-
+                            .Subscribe(f => { OverlayText.Focus(); });
                     });
             });
 
