@@ -9,6 +9,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkGrey">#282828</Color>
+            <Color x:Key="BrightGrey">#999999</Color>
+            
             <Color x:Key="HighlightGrey">#333333</Color>
             <Color x:Key="HighlightBlue">#80B9FF</Color>
             <Color x:Key="HighlightGold">#FFE39A</Color>
