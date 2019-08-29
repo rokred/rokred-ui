@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ui:ReactiveContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
@@ -10,11 +10,13 @@
     BackgroundColor="{StaticResource DarkGrey}"
     x:TypeArguments="vm:NewOpinionFirstStepViewModel"
     x:Class="RokredUI.Views.NewOpinionFirstStepView">
-    <ScrollView>
-        <Grid>
-            <StackLayout VerticalOptions="Start" Margin="10,50,10,0" Spacing="0" x:Name="OpinionContainer">
+    <ScrollView x:Name="Scroll">
+            <StackLayout x:Name="OpinionContainer" 
+                         VerticalOptions="Start" 
+                         Margin="10,50,10,0" 
+                         Spacing="0">
 
-                <controls:RokredLabel
+                <controls:RokredLabel x:Name="FirstControl"
                     IsBold="true"
                     FontSize="35"
                     Margin="10,0,10,10"
@@ -46,9 +48,11 @@
                     VerticalOptions="Start" />
 
                 <controls:RokredTextBox
-                    x:Name="OpinionText"
+                    x:Name="SubjectTextbox"
                     Margin="10,20,10,10" />
-
+                    
+           
+            
                 <controls:RokredLabel
                     IsBold="true"
                     FontSize="22"
@@ -59,16 +63,14 @@
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
-
-                <StackLayout Spacing="0" Margin="10,20">
-
+                
                     <ffimageloadingsvg:SvgCachedImage
                         Aspect="AspectFit" VerticalOptions="Start"
                         HorizontalOptions="Fill" Margin="10"
                         Source="soapbox-icon.svg" HeightRequest="70" />
 
 
-                    <controls:RokredButton x:Name="OpinionSandBox" Margin="20, 5, 20, 10">
+                    <controls:RokredButton x:Name="ApproachSoapboxButton" Margin="20, 5, 20, 10">
 
                         <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
                             <controls:RokredLabel
@@ -94,17 +96,7 @@
                         HorizontalTextAlignment="Center"
                         VerticalOptions="Start" />
 
-                </StackLayout>
+                        
             </StackLayout>
-            <Grid x:Name="OpinionsOverlay" VerticalOptions="FillAndExpand" Opacity="0" IsVisible="False">
-                <Grid BackgroundColor="Black" Opacity="0.4" x:Name="OverlayFilter">
-                    <Grid.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_OnTapped" />
-                    </Grid.GestureRecognizers>
-                </Grid>
-                <Entry x:Name="OverlayText"
-                       VerticalOptions="End" Margin="16, 8" HorizontalOptions="FillAndExpand" />
-            </Grid>
-        </Grid>
     </ScrollView>
 </ui:ReactiveContentPage>

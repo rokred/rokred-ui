@@ -12,6 +12,7 @@
             <Color x:Key="HighlightGrey">#333333</Color>
             <Color x:Key="HighlightBlue">#80B9FF</Color>
             <Color x:Key="HighlightGold">#FFE39A</Color>
+             <Color x:Key="BrightGrey">#999999</Color>
         </ResourceDictionary>    
     </Application.Resources>
 
