@@ -28,5 +28,6 @@
   <ItemGroup>
     <Folder Include="Backend\" />
     <Folder Include="Views\Extensions\" />
+    <Folder Include="ViewModels\VMI\" />
   </ItemGroup>
 </Project>
