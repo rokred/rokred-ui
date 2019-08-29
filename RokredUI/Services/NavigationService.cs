@@ -13,7 +13,7 @@ namespace RokredUI.Services
 
         public IObservable<Unit> Push<T>(T viewModel) where T : class, IViewModel
         {
-            var page = GetView<T>();
+            var page = viewModel.GetView();
             return Navigator.PushAsync(page, true).ToObservable();
         }
         
