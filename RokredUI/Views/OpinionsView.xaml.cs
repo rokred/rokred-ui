@@ -16,12 +16,6 @@ namespace RokredUI.Views
         public OpinionsView()
         {
             InitializeComponent();
-            BindingContext = new OpinionsViewModel();
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
 
             this.WhenActivated(disposables =>
             {
@@ -33,10 +27,7 @@ namespace RokredUI.Views
                     .DisposeWith(disposables);
 
                 this.WhenAnyValue(v => v.ViewModel.Loading).Where(x => !x).ObserveOn(RxApp.MainThreadScheduler)
-                    .Subscribe(x =>
-                    {
-                        Loader.FadeTo(0, 500, Easing.CubicOut);
-                    });
+                    .Subscribe(x => { Loader.FadeTo(0, 500, Easing.CubicOut); });
             });
         }
     }

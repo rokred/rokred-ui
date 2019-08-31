@@ -9,52 +9,52 @@
                         BackgroundColor="{StaticResource DarkGrey}"
                         x:TypeArguments="vm:NewOpinionSecondStepViewModel"
                         x:Class="RokredUI.Views.NewOpinionSecondStepView">
-    <ScrollView>
-        <StackLayout VerticalOptions="Start" Margin="10,50,10,0" Spacing="0">
-            <controls:RokredLabel IsBold="true"
-                                  FontSize="35"
-                                  Margin="10,0,10,10"
-                                  Text="NEW OPINION"
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-
-            <ffimageloadingsvg:SvgCachedImage x:Name="SportingImage" Aspect="AspectFit" VerticalOptions="Start"
-                                              HorizontalOptions="Fill" Margin="0"
-                                              HeightRequest="40" />
-
-            <controls:RokredLabel IsBold="true"
+    <ScrollView x:Name="Scroll">
+        <StackLayout x:Name="OpinionContainer" VerticalOptions="Start" Margin="10,50,10,0" Spacing="0">
+           
+            <controls:RokredLabel  x:Name="FirstControl"
+                                   IsBold="true"
                                   FontSize="22"
                                   Margin="10,10"
+                                  Text="Your neutral subject is"
+                                  TextColor="{StaticResource BrightGrey}"
+                                  HorizontalOptions="Center" VerticalOptions="Start" />
+                
+            <controls:RokredLabel x:Name="SubjectText" IsBold="true"
+                                  FontSize="22"
+                                  Margin="10,0,10,10"
                                   TextColor="{StaticResource HighlightBlue}"
                                   HorizontalOptions="Center" VerticalOptions="Start" />
+                
+            <ffimageloadingsvg:SvgCachedImage
+                    Aspect="AspectFit" VerticalOptions="Start"
+                    HorizontalOptions="Fill" Margin="0"
+                    Source="sporting-icon.svg" HeightRequest="70" />
 
-            <controls:RokredLabel IsBold="false"
-                                  FontSize="16"
-                                  Margin="10,0"
-                                  Text="Now tell us your golden opinion."
-                                  TextColor="{StaticResource HighlightBlue}"
+            <controls:RokredLabel IsBold="true"
+                                  FontSize="28"
+                                  Margin="10,10,10,10"
+                                  Text="FINALLY. IT'S TIME FOR YOUR OPINION"
+                                  TextColor="{StaticResource BrightGrey}"
                                   HorizontalTextAlignment="Center"
-                                  HorizontalOptions="Center"
+                                  HorizontalOptions="Center" 
                                   VerticalOptions="Start" />
-
-            <controls:RokredTextBox Margin="10,20,10,10"
-                                    Text="Opinion" />
-
-
-            <StackLayout Spacing="0" Margin="10,20">
-
+                                  
+            <controls:RokredTextBox x:Name="OpinionText" Margin="10,20,10,10"/>
+            
+          
                 <ffimageloadingsvg:SvgCachedImage Aspect="AspectFit" VerticalOptions="Start"
                                                   HorizontalOptions="Fill" Margin="10"
                                                   Source="review-icon.svg" HeightRequest="70" />
 
-                <controls:RokredButton Margin="20, 5, 20, 10">
+                <controls:RokredButton x:Name="SendButton" Margin="20, 5, 20, 10">
                     <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
 
                         <controls:RokredLabel
                             IsBold="true"
                             FontSize="22"
                             Margin="20"
-                            Text="REVIEW AND SEND"
+                            Text="SEND"
                             TextColor="{StaticResource HighlightGrey}"
                             HorizontalOptions="Center"
                             HorizontalTextAlignment="Center"
@@ -67,16 +67,13 @@
                     IsBold="false"
                     FontSize="16"
                     Margin="20,10"
-                    Text="Description"
+                    Text="The world needs to hear this!"
                     TextColor="{StaticResource HighlightGold}"
                     HorizontalOptions="Center"
                     HorizontalTextAlignment="Center"
                     VerticalOptions="Start" />
 
-            </StackLayout>
-
         </StackLayout>
-
     </ScrollView>
 
 </ui:ReactiveContentPage>
