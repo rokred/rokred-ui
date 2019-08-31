@@ -13,6 +13,7 @@ namespace RokredUI.Controls
         public RokredLabel()
         {
             OnIsBoldChanged(IsBold);
+            Text = " "; // force a line height
         }
 
         private void OnIsBoldChanged(bool value)
