@@ -15,6 +15,21 @@
                                   Text="Subject Page."
                                   TextColor="{StaticResource HighlightBlue}"
                                   HorizontalOptions="Center" VerticalOptions="Start" />
+            
+            <controls:RokredButton x:Name="PostOpinionButton" Margin="20, 5, 20, 10">
+                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
+                    <controls:RokredLabel
+                        IsBold="true"
+                        FontSize="22"
+                        Margin="20"
+                        Text="Post Opinion"
+                        TextColor="{StaticResource HighlightGrey}"
+                        HorizontalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Start" />
+                </Frame>
+            </controls:RokredButton>
+            
             <!-- opinions -->
             <controls:RokredLabel IsBold="false"
                                   FontSize="25"

@@ -22,6 +22,8 @@
                                   TextColor="{StaticResource HighlightBlue}"
                                   HorizontalOptions="Center" VerticalOptions="Start" />
             
+            
+            
             <controls:RokredButton x:Name="SelectChildCategoryButton" Margin="20, 5, 20, 10">
 
                 <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">

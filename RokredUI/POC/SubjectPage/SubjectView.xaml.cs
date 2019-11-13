@@ -26,6 +26,12 @@ namespace RokredUI.POC.SubjectPage
         {
             this.WhenActivated(disposables =>
             {
+                // post opinion
+                this.BindCommand(ViewModel, 
+                        vm => vm.PostNewOpinionCommand, 
+                        v => v.PostOpinionButton)
+                    .DisposeWith(disposables);
+                
                 // select child opinion (todo: activate fromm list of opinions)
                 this.BindCommand(ViewModel, 
                         vm => vm.SelectChildOpinionCommand, 

@@ -21,6 +21,8 @@ namespace RokredUI.POC.LandingPage
         protected override void Initialize()
         {
             base.Initialize();
+
+            Categories = base.GetCategories(null);
             
             SelectChildCategoryCommand = ReactiveCommand.Create(OnSelectCategory, Observable.Return(true));
         }

@@ -1,7 +1,9 @@
 using System;
+using System.Collections.Generic;
 using System.Reactive.Disposables;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+using RokredUI.POC.CategoryPage;
 using RokredUI.POC.LandingPage;
 using RokredUI.Services;
 using Splat;
@@ -39,6 +41,15 @@ namespace RokredUI.POC
         public void Dispose()
         {
             Disposables.Dispose();
+        }
+
+        protected List<CategoryVmi> GetCategories(CategoryVmi parent)
+        {
+            return new List<CategoryVmi>()
+            {
+                new CategoryVmi("Temp data for now"),
+                new CategoryVmi("These are generated each request"),
+            };
         }
     }
 }
