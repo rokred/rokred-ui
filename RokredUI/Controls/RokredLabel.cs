@@ -14,6 +14,9 @@ namespace RokredUI.Controls
         {
             OnIsBoldChanged(IsBold);
             Text = " "; // force a line height
+
+            base.MaxLines = 0;
+            base.LineBreakMode = LineBreakMode.WordWrap;
         }
 
         private void OnIsBoldChanged(bool value)

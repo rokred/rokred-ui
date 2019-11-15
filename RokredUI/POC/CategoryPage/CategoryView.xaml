@@ -6,59 +6,24 @@
              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
              xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
              x:Class="RokredUI.POC.CategoryPage.CategoryView"
-             x:TypeArguments="vm:CategoryViewModel">
+             x:TypeArguments="vm:CategoryViewModel"
+             BackgroundColor="{StaticResource OffDarkGrey}">
     <ContentPage.Content>
-        <StackLayout Margin="0,50,0,0">
-            <controls:RokredLabel IsBold="true"
-                                  FontSize="35"
-                                  Margin="10,0,10,10"
-                                  Text="Category Page."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            <!-- categories -->
-            <controls:RokredLabel IsBold="false"
-                                  FontSize="25"
-                                  Margin="10,0,10,10"
-                                  Text="List of Child Categories."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            <controls:RokredButton x:Name="SelectChildCategoryButton" Margin="20, 5, 20, 10">
-                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-                    <controls:RokredLabel
-                        IsBold="true"
-                        FontSize="22"
-                        Margin="20"
-                        Text="Select Category"
-                        TextColor="{StaticResource HighlightGrey}"
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Start" />
-
-                </Frame>
-            </controls:RokredButton>
+        <ScrollView>
+            <StackLayout Margin="0,0,0,0" Spacing="0">
+                
+            <controls:RokredHeader UserName="{Binding User.Name}" />
+            <controls:BreadcrumbBar Text="{Binding CurrentCategory.Name}"/>
+        
             
-            <!-- subjects -->
-            <controls:RokredLabel IsBold="false"
-                                  FontSize="25"
-                                  Margin="10,0,10,10"
-                                  Text="List of Child Subjects."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            <controls:RokredButton x:Name="SelectChildSubjectButton" Margin="20, 5, 20, 10">
-                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-                    <controls:RokredLabel
-                        IsBold="true"
-                        FontSize="22"
-                        Margin="20"
-                        Text="Select Subject"
-                        TextColor="{StaticResource HighlightGrey}"
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Start" />
-
-                </Frame>
-            </controls:RokredButton>
+            <controls:RokredList x:Name="ListCategories" 
+                                 BackgroundColor="White"/>
+            <controls:RokredList x:Name="ListSubjects" 
+                                 BackgroundColor="White"/>
             
+            
+         
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

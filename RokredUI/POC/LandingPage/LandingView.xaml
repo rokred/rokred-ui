@@ -6,40 +6,14 @@
              xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
              xmlns:vm="clr-namespace:RokredUI.POC.LandingPage;assembly=RokredUI"
              x:Class="RokredUI.POC.LandingPage.LandingView"
-             x:TypeArguments="vm:LandingViewModel">
+             x:TypeArguments="vm:LandingViewModel"
+             BackgroundColor="{StaticResource OffDarkGrey}">
     <ContentPage.Content>
-        <StackLayout Margin="0,50,0,0">
-            <controls:RokredLabel IsBold="true"
-                                  FontSize="35"
-                                  Margin="10,0,10,10"
-                                  Text="Landing Page."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            <controls:RokredLabel IsBold="false"
-                                  FontSize="25"
-                                  Margin="10,0,10,10"
-                                  Text="List of Categories."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            
-            
-            
-            <controls:RokredButton x:Name="SelectChildCategoryButton" Margin="20, 5, 20, 10">
-
-                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-                    <controls:RokredLabel
-                        IsBold="true"
-                        FontSize="22"
-                        Margin="20"
-                        Text="Select Category"
-                        TextColor="{StaticResource HighlightGrey}"
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Start" />
-
-                </Frame>
-
-            </controls:RokredButton>
+        <StackLayout Margin="0,0,0,0" Spacing="0">
+            <controls:RokredHeader UserName="{Binding User.Name}" />
+            <controls:BreadcrumbBar Text="Select a category"/>
+            <controls:RokredList x:Name="ListCategories" 
+                                 BackgroundColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

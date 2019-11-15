@@ -17,9 +17,14 @@ namespace RokredUI
         {
             InitializeComponent();
 
-            var appBootstrapper = new AppBootstrapper();
+        //    var appBootstrapper = new AppBootstrapper();
 
-            MainPage = new LandingView();
+        MainPage = new NavigationPage(new LandingView());
+        }
+
+        public void NavigateTo(Page page)
+        {
+            (MainPage as NavigationPage).PushAsync(page);
         }
 
         protected override void OnStart()

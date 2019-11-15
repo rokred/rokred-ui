@@ -25,7 +25,11 @@ namespace RokredUI.iOS
         {
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
+            
             CachedImageRenderer.Init();
+            CachedImageRenderer.InitImageSourceHandler();
+            var ignore = typeof(SvgCachedImage);
+            
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

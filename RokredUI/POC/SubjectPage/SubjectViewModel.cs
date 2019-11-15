@@ -19,7 +19,7 @@ namespace RokredUI.POC.SubjectPage
         public ReactiveCommand<Unit, Unit> SelectChildOpinionCommand { get; set; }
         public ReactiveCommand<Unit, Unit> PostNewOpinionCommand { get; set; }
         
-        public SubjectViewModel(SubjectVmi selectedChildSubject)
+        public SubjectViewModel(SubjectVmi selectedChildSubject) : base()
         {
             CurrentSubject = selectedChildSubject;
         }

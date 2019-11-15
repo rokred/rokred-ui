@@ -20,6 +20,7 @@ namespace RokredUI.POC.LandingPage
             InitializeComponent();
             
             ViewModel = new LandingViewModel();
+            
             BindControls();
         }
 
@@ -27,11 +28,16 @@ namespace RokredUI.POC.LandingPage
         {
             this.WhenActivated(disposables =>
             {
-                // select child category (todo: activate fromm list of categories)
-                this.BindCommand(ViewModel, 
-                        vm => vm.SelectChildCategoryCommand, 
-                        v => v.SelectChildCategoryButton)
-                    .DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.Categories,
+                    v => v.ListCategories.Source).DisposeWith(disposables);
+                
+                this.Bind(ViewModel, vm => vm.CategoryTappedCommand,
+                    v => v.ListCategories.ListItemTappedCommand).DisposeWith(disposables);
+                
+                this.Bind(ViewModel, vm => vm.SelectedChildCategory,
+                    v => v.ListCategories.SelectedItem).DisposeWith(disposables);
+                
+                
             });
         }
     }

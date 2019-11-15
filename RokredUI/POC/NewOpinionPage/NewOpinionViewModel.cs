@@ -5,6 +5,7 @@ using ReactiveUI.Fody.Helpers;
 using RokredUI.POC.LandingPage;
 using RokredUI.POC.OpinionPage;
 using RokredUI.POC.SubjectPage;
+using Xamarin.Forms;
 
 namespace RokredUI.POC.NewOpinionPage
 {
@@ -14,7 +15,7 @@ namespace RokredUI.POC.NewOpinionPage
 
         public ReactiveCommand<Unit, Unit> PostNewOpinionCommand { get; set; }
         
-        public NewOpinionViewModel()
+        public NewOpinionViewModel() : base()
         {
         }
         
@@ -28,7 +29,7 @@ namespace RokredUI.POC.NewOpinionPage
         private void OnPostNewOpinion()
         {
             // todo: should go back to subject or opinion it came from
-            App.Current.MainPage = new LandingView();
+            App.Current.MainPage = new NavigationPage(new LandingView());
         }
     }
 }

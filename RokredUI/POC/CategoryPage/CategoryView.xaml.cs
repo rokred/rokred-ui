@@ -26,17 +26,23 @@ namespace RokredUI.POC.CategoryPage
         {
             this.WhenActivated(disposables =>
             {
-                // select child category (todo: activate fromm list of categories)
-                this.BindCommand(ViewModel, 
-                        vm => vm.SelectChildCategoryCommand, 
-                        v => v.SelectChildCategoryButton)
-                    .DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.Categories,
+                    v => v.ListCategories.Source).DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.Subjects,
+                    v => v.ListSubjects.Source).DisposeWith(disposables);
+
+                this.Bind(ViewModel, vm => vm.CategoryTappedCommand,
+                    v => v.ListCategories.ListItemTappedCommand).DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.SubjectTappedCommand,
+                    v => v.ListSubjects.ListItemTappedCommand).DisposeWith(disposables);
                 
-                // select child subject (todo: activate fromm list of subjects)
-                this.BindCommand(ViewModel, 
-                        vm => vm.SelectChildSubjectCommand, 
-                        v => v.SelectChildSubjectButton)
-                    .DisposeWith(disposables);
+                 
+                this.Bind(ViewModel, vm => vm.SelectedChildCategory,
+                    v => v.ListCategories.SelectedItem).DisposeWith(disposables);
+
+                this.Bind(ViewModel, vm => vm.SelectedChildSubject,
+                    v => v.ListSubjects.SelectedItem).DisposeWith(disposables);
+           
             });
         }
     }

@@ -19,7 +19,7 @@ namespace RokredUI.POC.OpinionPage
         public ReactiveCommand<Unit, Unit> PostNewOpinionCommand { get; set; }
 
         
-        public OpinionViewModel(OpinionVmi selectedChildOpinion)
+        public OpinionViewModel(OpinionVmi selectedChildOpinion) : base()
         {
             CurrentOpinion = selectedChildOpinion;
         }
