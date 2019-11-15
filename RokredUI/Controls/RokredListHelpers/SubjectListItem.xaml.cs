@@ -13,9 +13,15 @@ namespace RokredUI.Controls.RokredListHelpers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubjectListItem : IRokredListChildView
     {
-        private readonly SubjectVmi _subject;
+        private SubjectVmi _subject;
 
         public IRokredListChildDataSource DataSource => _subject;
+        
+        public SubjectListItem()
+        {
+            InitializeComponent();
+
+        }
         
         public SubjectListItem(SubjectVmi subject)
         {
@@ -33,6 +39,20 @@ namespace RokredUI.Controls.RokredListHelpers
         public void SetIsSelected(bool isSelected)
         {
             _subject.IsSelected = isSelected;
+            SetSelectedState();
+        }
+        
+        protected void BoundDataSourceChanged(SubjectVmi subject)
+        {
+            _subject = subject;
+            
+            IconView.Context = subject;
+            LabelText.Text = subject.Name;
+            LabelText.IsBold = subject.IsNew;
+
+            // bound ones are in xaml static. not clickable
+            ImageChevron.IsVisible = false;
+            
             SetSelectedState();
         }
 
@@ -55,6 +75,30 @@ namespace RokredUI.Controls.RokredListHelpers
             }
             
         }
+
+      
+
+
+
+        public static readonly BindableProperty BoundDataSourceProperty =
+            BindableProperty.Create(
+                "BoundDataSource",
+                typeof(SubjectVmi),
+                typeof(SubjectListItem),
+                default(SubjectVmi),
+                propertyChanged: (bindable, oldValue, newValue) =>
+                {
+                    var thisControl = (SubjectListItem) bindable;
+                    thisControl.BoundDataSourceChanged((SubjectVmi) newValue);
+                });
+
+        public SubjectVmi BoundDataSource
+        {
+            get => (SubjectVmi) GetValue(BoundDataSourceProperty);
+            set => SetValue(BoundDataSourceProperty, value);
+        }
+
+     
 
 
       

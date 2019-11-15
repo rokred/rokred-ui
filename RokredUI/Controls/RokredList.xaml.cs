@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ReactiveUI;
 using RokredUI.Controls.RokredListHelpers;
 using RokredUI.POC.CategoryPage;
+using RokredUI.POC.OpinionPage;
 using RokredUI.POC.SubjectPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -27,12 +28,11 @@ namespace RokredUI.Controls
             
             if (val != null)
             {
-                AddCategories(val);
-                AddSubjects(val);
+                AddViews(val);
             }
         }
 
-        private void AddCategories(IEnumerable<IRokredListChildDataSource> source)
+        private void AddViews(IEnumerable<IRokredListChildDataSource> source)
         {
             foreach (var category in source.OfType<CategoryVmi>())
             {
@@ -46,20 +46,30 @@ namespace RokredUI.Controls
                 
                 StackChildren.Children.Add(button);
             }
-        }
-        private void AddSubjects(IEnumerable<IRokredListChildDataSource> source)
-        {
+            
             foreach (var subject in source.OfType<SubjectVmi>())
             {
                 var view = new SubjectListItem(subject);
                 var button = new RokredButton();
                 button.Content = view;
-                
+                                      
                 button.Command = ListItemTappedCommand;
                 button.CommandParameter = subject;
-                
+                                      
                 StackChildren.Children.Add(button);
             }
+            foreach (var opinion in source.OfType<OpinionVmi>())
+            {
+                var view = new OpinionListItem(opinion);
+                var button = new RokredButton();
+                button.Content = view;
+                                    
+                button.Command = ListItemTappedCommand;
+                button.CommandParameter = opinion;
+                                    
+                StackChildren.Children.Add(button);
+            }
+            
         }
 
         protected void ListItemTappedCommandChanged(ReactiveCommand<IRokredListChildDataSource, Unit> val)

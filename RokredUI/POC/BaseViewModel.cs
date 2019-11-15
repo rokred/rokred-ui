@@ -6,6 +6,7 @@ using ReactiveUI.Fody.Helpers;
 using RokredUI.Controls.RokredListHelpers;
 using RokredUI.POC.CategoryPage;
 using RokredUI.POC.LandingPage;
+using RokredUI.POC.OpinionPage;
 using RokredUI.POC.SubjectPage;
 using RokredUI.Services;
 using Splat;
@@ -80,6 +81,18 @@ namespace RokredUI.POC
                 new SubjectVmi("hopefully will have some real ones soon"){ IsNew = true},
                 new SubjectVmi("Let's make sure that these things wrap. For now, we will let them have no limit."),
                 new SubjectVmi("examples to show colors"),
+            };
+        }
+
+        protected List<OpinionVmi> GetOpinions(SubjectVmi currentSubject)
+        {
+            return new List<OpinionVmi>()
+            {
+                new OpinionVmi("Some OPINION here"){ IsNew = true},
+                new OpinionVmi("These should be arranged by date", "This is the body"){ IsNew = true},
+                new OpinionVmi("hopefully will have some real ones soon"){ IsNew = true},
+                new OpinionVmi("Let's make sure that these things wrap. For now, we will let them have no limit."),
+                new OpinionVmi("examples to show colors", "This has a body"),
             };
         }
     }

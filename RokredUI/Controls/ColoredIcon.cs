@@ -1,6 +1,7 @@
 using FFImageLoading.Svg.Forms;
 using RokredUI.Controls.RokredListHelpers;
 using RokredUI.POC.CategoryPage;
+using RokredUI.POC.OpinionPage;
 using RokredUI.POC.SubjectPage;
 using Xamarin.Forms;
 
@@ -37,6 +38,7 @@ namespace RokredUI.Controls
 
             if (val is CategoryVmi) result = IsSelected ? "category-icon-selected.svg" : "category-icon.svg";
             if (val is SubjectVmi) result = IsSelected ? "subject-icon-selected.svg" : "subject-icon.svg";
+            if (val is OpinionVmi) result = IsSelected ? "opinion-icon-selected.svg" : "opinion-icon.svg";
 
             Source = result;
         }

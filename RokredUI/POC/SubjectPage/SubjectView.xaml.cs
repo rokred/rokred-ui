@@ -26,17 +26,23 @@ namespace RokredUI.POC.SubjectPage
         {
             this.WhenActivated(disposables =>
             {
-                // post opinion
-                this.BindCommand(ViewModel, 
-                        vm => vm.PostNewOpinionCommand, 
-                        v => v.PostOpinionButton)
-                    .DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.Opinions,
+                    v => v.ListOpinions.Source).DisposeWith(disposables);
                 
-                // select child opinion (todo: activate fromm list of opinions)
-                this.BindCommand(ViewModel, 
-                        vm => vm.SelectChildOpinionCommand, 
-                        v => v.SelectChildOpinionButton)
-                    .DisposeWith(disposables);
+                this.Bind(ViewModel, vm => vm.OpinionTappedCommand,
+                    v => v.ListOpinions.ListItemTappedCommand).DisposeWith(disposables);
+
+
+                this.Bind(ViewModel, vm => vm.SelectedChildOpinion,
+                    v => v.ListOpinions.SelectedItem).DisposeWith(disposables);
+
+                // post opinion
+//                this.BindCommand(ViewModel, 
+//                        vm => vm.PostNewOpinionCommand, 
+//                        v => v.PostOpinionButton)
+//                    .DisposeWith(disposables);
+                
+              
             });
         }
     }

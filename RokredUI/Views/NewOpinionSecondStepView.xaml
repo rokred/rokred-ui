@@ -16,7 +16,7 @@
                                    IsBold="true"
                                   FontSize="22"
                                   Margin="10,10"
-                                  Text="Your neutral subject is"
+                                  Text="Your neutral opinion is"
                                   TextColor="{StaticResource BrightGrey}"
                                   HorizontalOptions="Center" VerticalOptions="Start" />
                 

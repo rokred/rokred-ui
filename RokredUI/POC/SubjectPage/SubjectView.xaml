@@ -5,51 +5,18 @@
              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
              xmlns:vm="clr-namespace:RokredUI.POC.SubjectPage;assembly=RokredUI"
              xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
+             xmlns:rokredListHelpers="clr-namespace:RokredUI.Controls.RokredListHelpers;assembly=RokredUI"
              x:Class="RokredUI.POC.SubjectPage.SubjectView"
              x:TypeArguments="vm:SubjectViewModel">
     <ContentPage.Content>
-        <StackLayout Margin="0,50,0,0">
-            <controls:RokredLabel IsBold="true"
-                                  FontSize="35"
-                                  Margin="10,0,10,10"
-                                  Text="Subject Page."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
+        <StackLayout Margin="0,0,0,0" Spacing="0">
+            <controls:RokredHeader UserName="{Binding User.Name}" />
+            <controls:BreadcrumbBar Text="SUBJECT"/>
             
-            <controls:RokredButton x:Name="PostOpinionButton" Margin="20, 5, 20, 10">
-                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-                    <controls:RokredLabel
-                        IsBold="true"
-                        FontSize="22"
-                        Margin="20"
-                        Text="Post Opinion"
-                        TextColor="{StaticResource HighlightGrey}"
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Start" />
-                </Frame>
-            </controls:RokredButton>
+            <rokredListHelpers:SubjectListItem BoundDataSource="{Binding CurrentSubject}" />
             
-            <!-- opinions -->
-            <controls:RokredLabel IsBold="false"
-                                  FontSize="25"
-                                  Margin="10,0,10,10"
-                                  Text="List of Child Opinions."
-                                  TextColor="{StaticResource HighlightBlue}"
-                                  HorizontalOptions="Center" VerticalOptions="Start" />
-            <controls:RokredButton x:Name="SelectChildOpinionButton" Margin="20, 5, 20, 10">
-                <Frame CornerRadius="10" BackgroundColor="{StaticResource HighlightGold}">
-                    <controls:RokredLabel
-                        IsBold="true"
-                        FontSize="22"
-                        Margin="20"
-                        Text="Select Opinion"
-                        TextColor="{StaticResource HighlightGrey}"
-                        HorizontalOptions="CenterAndExpand"
-                        HorizontalTextAlignment="Center"
-                        VerticalOptions="Start" />
-                </Frame>
-            </controls:RokredButton>
+            <controls:RokredList x:Name="ListOpinions" 
+                                 BackgroundColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

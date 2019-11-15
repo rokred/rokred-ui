@@ -159,6 +159,12 @@
     <Content Include="..\RokredUI\Resources\Images\chevron-icon.svg">
       <Link>Resources\chevron-icon.svg</Link>
     </Content>
+    <Content Include="..\RokredUI\Resources\Images\opinion-icon-selected.svg">
+      <Link>Resources\opinion-icon-selected.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\opinion-icon.svg">
+      <Link>Resources\opinion-icon.svg</Link>
+    </Content>
     <Content Include="..\RokredUI\Resources\Images\review-icon.svg">
       <Link>Resources\review-icon.svg</Link>
     </Content>
