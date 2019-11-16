@@ -168,6 +168,9 @@
     <Content Include="..\RokredUI\Resources\Images\review-icon.svg">
       <Link>Resources\review-icon.svg</Link>
     </Content>
+    <Content Include="..\RokredUI\Resources\Images\shadow-breadcrumbs.png">
+      <Link>Resources\shadow-breadcrumbs.png</Link>
+    </Content>
     <Content Include="..\RokredUI\Resources\Images\soapbox-icon.svg">
       <Link>Resources\soapbox-icon.svg</Link>
     </Content>

@@ -1,4 +1,6 @@
 using System.Linq;
+using FFImageLoading.Forms;
+using FFImageLoading.Svg.Forms;
 using RokredUI.Controls.BreadcrumbBarHelpers;
 using RokredUI.Controls.RokredListHelpers;
 using RokredUI.POC;
@@ -9,7 +11,9 @@ namespace RokredUI.Controls
     public class BreadcrumbBar : ContentView
     {
         private StackLayout _stack;
+        private Grid _grid;
         private ScrollView _scroll;
+        private CachedImage _leftGradient;
         
         public BreadcrumbBar()
         {
@@ -17,13 +21,19 @@ namespace RokredUI.Controls
             HorizontalOptions = LayoutOptions.Fill;
             VerticalOptions = LayoutOptions.Start;
 
+            _grid = new Grid
+            {
+                VerticalOptions = LayoutOptions.Fill,
+                HorizontalOptions = LayoutOptions.Fill,
+            };
+            
             _stack = new StackLayout()
             {
                 Orientation = StackOrientation.Horizontal,
                 Spacing = 0,
                 Margin = new Thickness(5,15)
             };
-
+           
             _scroll = new ScrollView
             {
                 Orientation = ScrollOrientation.Horizontal,
@@ -33,7 +43,31 @@ namespace RokredUI.Controls
                 Content = _stack
             };
             
-            Content = _scroll;
+            _grid.Children.Add(_scroll);
+
+            _leftGradient = new CachedImage
+            {
+                Source = "shadow-breadcrumbs.png",
+                Aspect = Aspect.Fill,
+                HorizontalOptions = LayoutOptions.Start,
+                VerticalOptions = LayoutOptions.Fill,
+                WidthRequest = 80,
+                Opacity = 0f,
+                InputTransparent = true
+            };
+            _grid.Children.Add(_leftGradient);
+            
+            // the shadow shows we have scrolled
+            _scroll.Scrolled += (sender, args) =>
+            {
+                Device.BeginInvokeOnMainThread(() => 
+                { 
+                    _leftGradient.Opacity = (args.ScrollX > 0) ? 0.5f : 0f;
+                    //  _leftGradient.FadeTo( (args.ScrollX > 0) ? 1f : 0f, 100, Easing.CubicInOut);
+                });
+            };
+            
+            Content = _grid;
             DataSourceContextChanged(DataSourceContext);
         }
 
