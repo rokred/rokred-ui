@@ -7,13 +7,42 @@
              xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
              xmlns:rokredListHelpers="clr-namespace:RokredUI.Controls.RokredListHelpers;assembly=RokredUI"
              x:Class="RokredUI.POC.SubjectPage.SubjectView"
-             x:TypeArguments="vm:SubjectViewModel">
+             x:TypeArguments="vm:SubjectViewModel"
+             BackgroundColor="{StaticResource OffDarkGrey}">
     <ContentPage.Content>
         <StackLayout Margin="0,0,0,0" Spacing="0">
             <controls:RokredHeader UserName="{Binding User.Name}" />
-            <controls:BreadcrumbBar Text="SUBJECT"/>
+            <controls:BreadcrumbBar DataSourceContext="{Binding DataSourceContext}"/>
+            <!-- current selected subject -->
+            <rokredListHelpers:SubjectListItem BoundDataSource="{Binding CurrentSubject}"
+                                               Margin="0,0,0,30"/>
+            <!-- new opinion button -->
+            <controls:RokredButton x:Name="ButtonNewOpinion" 
+                                   BackgroundColor="{StaticResource OpinionColor}">
+                <controls:RokredLabel x:Name="LabelText"
+                                      IsBold="true"
+                                      FontSize="15"
+                                      Margin="15,25"
+                                      Text="POST OPINION HERE"
+                                      HorizontalOptions="Center"
+                                      HorizontalTextAlignment="Center"
+                                      VerticalOptions="Center"
+                                      TextColor="Black"
+                />
+            </controls:RokredButton>
             
-            <rokredListHelpers:SubjectListItem BoundDataSource="{Binding CurrentSubject}" />
+            <ContentView BackgroundColor="{StaticResource DarkGold}"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Fill"
+                         HeightRequest="1"/>
+            <ContentView BackgroundColor="{StaticResource OpinionColor}"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Fill"
+                         HeightRequest="10"/>
+            <ContentView BackgroundColor="{StaticResource DarkGold}"
+                         VerticalOptions="Start"
+                         HorizontalOptions="Fill"
+                         HeightRequest="1"/>
             
             <controls:RokredList x:Name="ListOpinions" 
                                  BackgroundColor="White"/>

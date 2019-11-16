@@ -14,11 +14,13 @@ namespace RokredUI.POC.SubjectPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SubjectView : ReactiveContentPage<SubjectViewModel>
     {
-        public SubjectView(SubjectVmi selectedChildSubject)
+        public SubjectView(DataSourceContext dataSourceContext, SubjectVmi selectedChildSubject)
         {
             InitializeComponent();
             
             ViewModel = new SubjectViewModel(selectedChildSubject);
+            ViewModel.DataSourceContext = dataSourceContext;
+            
             BindControls();
         }
         
@@ -37,10 +39,8 @@ namespace RokredUI.POC.SubjectPage
                     v => v.ListOpinions.SelectedItem).DisposeWith(disposables);
 
                 // post opinion
-//                this.BindCommand(ViewModel, 
-//                        vm => vm.PostNewOpinionCommand, 
-//                        v => v.PostOpinionButton)
-//                    .DisposeWith(disposables);
+                this.BindCommand(ViewModel,vm => vm.PostNewOpinionCommand, 
+                    v => v.ButtonNewOpinion).DisposeWith(disposables);
                 
               
             });

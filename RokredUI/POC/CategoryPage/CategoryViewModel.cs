@@ -24,30 +24,14 @@ namespace RokredUI.POC.CategoryPage
         [Reactive] public IList<IRokredListChildDataSource> Categories { get; set; }
         [Reactive] public IList<IRokredListChildDataSource> Subjects { get; set; }
 
-        [Reactive] public IRokredListChildDataSource SelectedChildCategory
-        {
-            get => _selectedChildCategory;
-            set
-            {
-                _selectedChildCategory = value as CategoryVmi;
-                if (value != null) SelectedChildSubject = null;
-            }
-        }
+        [Reactive] public IRokredListChildDataSource SelectedChildCategory { get; set; }
 
-        [Reactive] public IRokredListChildDataSource SelectedChildSubject
-        {
-            get => _selectedChildSubject;
-            set
-            {
-                _selectedChildSubject = value as SubjectVmi;
-                if (value != null) SelectedChildCategory = null;
-            }
-        }
+        [Reactive] public IRokredListChildDataSource SelectedChildSubject { get; set; }
    
         public ReactiveCommand<IRokredListChildDataSource, Unit> CategoryTappedCommand { get; set; }
 
         public ReactiveCommand<IRokredListChildDataSource, Unit> SubjectTappedCommand { get; set; }
-        
+
         public CategoryViewModel(CategoryVmi selectedChildCategory)
             : base(selectedChildCategory)
         {
@@ -77,26 +61,31 @@ namespace RokredUI.POC.CategoryPage
         private async Task OnSelectCategory(IRokredListChildDataSource category)
         {
             SelectedChildCategory = category;
+            SelectedChildSubject = null;
             SetInternalSelectedStates();
+            
+            base.AddContext(category);
 
-            (App.Current as App).NavigateTo(new CategoryView(category as CategoryVmi));
+            (App.Current as App).NavigateTo(new CategoryView(base.DataSourceContext, category as CategoryVmi));
         }
         
         private async Task OnSelectSubject(IRokredListChildDataSource subject)
         {
             SelectedChildSubject = subject;
+            SelectedChildCategory = null;
             SetInternalSelectedStates();
 
-            (App.Current as App).NavigateTo(new SubjectView(subject as SubjectVmi));
+            base.AddContext(subject);
+
+            (App.Current as App).NavigateTo(page: new SubjectView(base.DataSourceContext, subject as SubjectVmi));
         }
         
-
         private void SetInternalSelectedStates()
         {
             foreach (var category in _categories)
                 category.IsSelected = category == SelectedChildCategory;
+            foreach (var subject in _subjects)
+                subject.IsSelected = subject == SelectedChildSubject;
         }
-        
-        
     }
 }

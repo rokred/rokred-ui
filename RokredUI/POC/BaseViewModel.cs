@@ -16,6 +16,10 @@ namespace RokredUI.POC
     public abstract class BaseViewModel : ReactiveObject, IDisposable, IViewModel
     {
         protected IRokredListChildDataSource _currentContext;
+      
+        public int DataSourceContextIndex { get; set; }
+        
+        [Reactive] public DataSourceContext DataSourceContext { get; set; }
         [Reactive] public UserVmi User { get; set; }
 
         protected BaseViewModel(IRokredListChildDataSource currentContext = null)
@@ -95,5 +99,20 @@ namespace RokredUI.POC
                 new OpinionVmi("examples to show colors", "This has a body"),
             };
         }
+
+        protected void AddContext(IRokredListChildDataSource item)
+        {
+           if (DataSourceContext == null)
+               DataSourceContext = new DataSourceContext();
+
+           while (DataSourceContext.ContextItems.Count >= DataSourceContextIndex + 1)
+           {
+               DataSourceContext.ContextItems.RemoveAt(DataSourceContext.ContextItems.Count - 1);
+           }
+           
+           DataSourceContext.ContextItems.Add(item);
+        }
+        
+        
     }
 }

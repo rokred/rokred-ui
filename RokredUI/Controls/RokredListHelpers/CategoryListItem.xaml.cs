@@ -31,6 +31,7 @@ namespace RokredUI.Controls.RokredListHelpers
 
         protected void SelectedCategoryChanged(CategoryVmi val)
         {
+            _category.IsSelected = _category == val;
             SetSelectedState();
         }
 

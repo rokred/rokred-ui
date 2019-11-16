@@ -1,10 +1,13 @@
+using System.Linq;
+using RokredUI.POC;
 using Xamarin.Forms;
 
 namespace RokredUI.Controls
 {
     public class BreadcrumbBar : ContentView
     {
-        private RokredLabel _label;
+        private StackLayout _stack;
+        private ScrollView _scroll;
         
         public BreadcrumbBar()
         {
@@ -13,43 +16,78 @@ namespace RokredUI.Controls
             HorizontalOptions = LayoutOptions.Fill;
             VerticalOptions = LayoutOptions.Start;
 
-            _label = new RokredLabel()
+            _stack = new StackLayout()
+            {
+                Orientation = StackOrientation.Horizontal
+            };
+
+            _scroll = new ScrollView
+            {
+                Orientation = ScrollOrientation.Horizontal,
+                HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
+                VerticalScrollBarVisibility = ScrollBarVisibility.Never,
+                
+                Content = _stack
+            };
+            
+            
+            Content = _scroll;
+        }
+
+        protected void DataSourceContextChanged(DataSourceContext val)
+        {
+            _stack.Children.Clear();
+            
+            if (val.ContextItems.Any())
+            {
+                foreach (var contextItem in val.ContextItems)
+                {
+                    var label = new RokredLabel()
+                    { 
+                        Margin = 10, 
+                        TextColor = Color.White,
+                        VerticalOptions = LayoutOptions.Center,
+                        HorizontalOptions = LayoutOptions.Start,
+                        Text = contextItem.ToString()
+                    };  
+                    
+                    _stack.Children.Add(label);
+                }
+            }
+            else
+            {
+                var label = new RokredLabel()
                 { 
                     Margin = 10, 
-                    TextColor = Color.White ,
+                    TextColor = Color.White,
                     VerticalOptions = LayoutOptions.Center,
-                    HorizontalOptions = LayoutOptions.Center
-                };
-
-            Content = _label;
+                    HorizontalOptions = LayoutOptions.Start,
+                    Text = "SELECT A CATEGORY"
+                };  
+                    
+                _stack.Children.Add(label);
+            }
+            
+            Device.BeginInvokeOnMainThread(async ()=> 
+                await _scroll.ScrollToAsync(_stack.Children.Last(), ScrollToPosition.End, true));
         }
-
-        protected void TextChanged(string val)
-        {
-            _label.Text = val;
-        }
-
-
-
-        public static readonly BindableProperty TextProperty =
+        
+        public static readonly BindableProperty DataSourceContextProperty =
             BindableProperty.Create(
-                "Text",
-                typeof(string),
+                "DataSourceContext",
+                typeof(DataSourceContext),
                 typeof(BreadcrumbBar),
-                default(string),
+                default(DataSourceContext),
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
                     var thisControl = (BreadcrumbBar) bindable;
-                    thisControl.TextChanged((string) newValue);
+                    thisControl.DataSourceContextChanged((DataSourceContext) newValue);
                 });
 
-        public string Text
+        public DataSourceContext DataSourceContext
         {
-            get => (string) GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
+            get => (DataSourceContext) GetValue(DataSourceContextProperty);
+            set => SetValue(DataSourceContextProperty, value);
         }
-
-     
-
     }
 }

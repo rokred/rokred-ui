@@ -14,11 +14,13 @@ namespace RokredUI.POC.CategoryPage
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CategoryView : ReactiveContentPage<CategoryViewModel>
     {
-        public CategoryView(CategoryVmi selectedChildCategory)
+        public CategoryView(DataSourceContext dataSourceContext, CategoryVmi selectedChildCategory)
         {
             InitializeComponent();
             
             ViewModel = new CategoryViewModel(selectedChildCategory);
+            ViewModel.DataSourceContext = dataSourceContext;
+            ViewModel.DataSourceContextIndex = ViewModel.DataSourceContext.ContextItems.Count;
             BindControls();
         }
         
@@ -36,7 +38,6 @@ namespace RokredUI.POC.CategoryPage
                 this.Bind(ViewModel, vm => vm.SubjectTappedCommand,
                     v => v.ListSubjects.ListItemTappedCommand).DisposeWith(disposables);
                 
-                 
                 this.Bind(ViewModel, vm => vm.SelectedChildCategory,
                     v => v.ListCategories.SelectedItem).DisposeWith(disposables);
 

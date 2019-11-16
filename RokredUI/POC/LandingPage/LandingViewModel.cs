@@ -38,7 +38,9 @@ namespace RokredUI.POC.LandingPage
             SelectedChildCategory = category;
             SetInternalSelectedStates();
 
-            (App.Current as App).NavigateTo(new CategoryView(category as CategoryVmi));
+            base.AddContext(category);
+
+            (App.Current as App).NavigateTo(new CategoryView(base.DataSourceContext, category as CategoryVmi));
         }
 
         private void SetInternalSelectedStates()

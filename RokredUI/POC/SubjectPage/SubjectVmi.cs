@@ -12,5 +12,10 @@ namespace RokredUI.POC.SubjectPage
         {
             Name = name;
         }
+        
+        public override string ToString()
+        {
+            return "SUBJECT";
+        }
     }
 }
