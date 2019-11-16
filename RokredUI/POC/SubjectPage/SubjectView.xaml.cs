@@ -20,6 +20,7 @@ namespace RokredUI.POC.SubjectPage
             
             ViewModel = new SubjectViewModel(selectedChildSubject);
             ViewModel.DataSourceContext = dataSourceContext;
+            ViewModel.DataSourceContextIndex = ViewModel.DataSourceContext.ContextItems.Count;
             
             BindControls();
         }
@@ -41,8 +42,6 @@ namespace RokredUI.POC.SubjectPage
                 // post opinion
                 this.BindCommand(ViewModel,vm => vm.PostNewOpinionCommand, 
                     v => v.ButtonNewOpinion).DisposeWith(disposables);
-                
-              
             });
         }
     }

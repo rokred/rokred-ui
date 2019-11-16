@@ -27,7 +27,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Backend\" />
-    <Folder Include="Controls\BreadcrumbBarHelpers" />
     <Folder Include="Views\Extensions\" />
   </ItemGroup>
 </Project>

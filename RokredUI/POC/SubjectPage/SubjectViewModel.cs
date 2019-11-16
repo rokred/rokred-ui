@@ -18,8 +18,7 @@ namespace RokredUI.POC.SubjectPage
         
         [Reactive] public IList<IRokredListChildDataSource> Opinions { get; set; }
         [Reactive] public IRokredListChildDataSource SelectedChildOpinion { get; set; }
-        
-       
+
         public ReactiveCommand<Unit, Unit> PostNewOpinionCommand { get; set; }
         
         public ReactiveCommand<IRokredListChildDataSource, Unit> OpinionTappedCommand { get; set; }
@@ -50,8 +49,10 @@ namespace RokredUI.POC.SubjectPage
         {
             SelectedChildOpinion = vmi;
             SetInternalSelectedStates();
+            
+            base.AddContext(vmi);
 
-            (App.Current as App).NavigateTo(new OpinionView(vmi as OpinionVmi));
+            (App.Current as App).NavigateTo(new OpinionView(base.DataSourceContext, CurrentSubject, vmi as OpinionVmi));
         }
         
         private void OnPostNewOpinion()

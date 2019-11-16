@@ -99,6 +99,16 @@ namespace RokredUI.POC
                 new OpinionVmi("examples to show colors", "This has a body"),
             };
         }
+        
+        protected List<OpinionVmi> GetOpinions(OpinionVmi currentOpinion)
+        {
+            return new List<OpinionVmi>()
+            {
+                new OpinionVmi("From a PARENT OPINION", "This is the body of that opinion."){ IsNew = true },
+                new OpinionVmi("Some OPINION here"){ IsNew = true},
+                new OpinionVmi("These should be arranged by date. I have no idea how we will handle super long ones for now.", "So I will just let them be as long as they wish. But I guess we should concat them in the list"){},
+            };
+        }
 
         protected void AddContext(IRokredListChildDataSource item)
         {

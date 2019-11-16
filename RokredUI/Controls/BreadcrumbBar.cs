@@ -1,4 +1,6 @@
 using System.Linq;
+using RokredUI.Controls.BreadcrumbBarHelpers;
+using RokredUI.Controls.RokredListHelpers;
 using RokredUI.POC;
 using Xamarin.Forms;
 
@@ -11,14 +13,15 @@ namespace RokredUI.Controls
         
         public BreadcrumbBar()
         {
-            BackgroundColor = Color.Black;
-            HeightRequest = 50;
+            BackgroundColor = Color.FromHex("2A2A2A");
             HorizontalOptions = LayoutOptions.Fill;
             VerticalOptions = LayoutOptions.Start;
 
             _stack = new StackLayout()
             {
-                Orientation = StackOrientation.Horizontal
+                Orientation = StackOrientation.Horizontal,
+                Spacing = 0,
+                Margin = new Thickness(5,15)
             };
 
             _scroll = new ScrollView
@@ -30,36 +33,33 @@ namespace RokredUI.Controls
                 Content = _stack
             };
             
-            
             Content = _scroll;
+            DataSourceContextChanged(DataSourceContext);
         }
 
         protected void DataSourceContextChanged(DataSourceContext val)
         {
             _stack.Children.Clear();
             
-            if (val.ContextItems.Any())
+            if (val != null && val.ContextItems.Any())
             {
                 foreach (var contextItem in val.ContextItems)
                 {
-                    var label = new RokredLabel()
-                    { 
-                        Margin = 10, 
-                        TextColor = Color.White,
-                        VerticalOptions = LayoutOptions.Center,
-                        HorizontalOptions = LayoutOptions.Start,
-                        Text = contextItem.ToString()
-                    };  
-                    
-                    _stack.Children.Add(label);
+                    if (contextItem is IRokredListChildDataSource iData)
+                    {
+                        var view = iData.CreateBreadcrumbView();
+                        _stack.Children.Add(view);
+                    }
                 }
             }
             else
             {
                 var label = new RokredLabel()
                 { 
-                    Margin = 10, 
-                    TextColor = Color.White,
+                    Margin = new Thickness(25,10,10,10), 
+                    IsBold = true,
+                    FontSize = 12,
+                    TextColor = Color.FromHex("DCDCDC"),
                     VerticalOptions = LayoutOptions.Center,
                     HorizontalOptions = LayoutOptions.Start,
                     Text = "SELECT A CATEGORY"

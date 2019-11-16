@@ -9,11 +9,13 @@
              x:TypeArguments="vm:LandingViewModel"
              BackgroundColor="{StaticResource OffDarkGrey}">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout Margin="0,0,0,0" Spacing="0">
             <controls:RokredHeader UserName="{Binding User.Name}" />
-            <controls:BreadcrumbBar DataSourceContext="{Binding DataSourceContext}"/>
+            <controls:BreadcrumbBar />
             <controls:RokredList x:Name="ListCategories" 
                                  BackgroundColor="White"/>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>

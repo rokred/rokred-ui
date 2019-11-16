@@ -10,6 +10,7 @@
              x:TypeArguments="vm:SubjectViewModel"
              BackgroundColor="{StaticResource OffDarkGrey}">
     <ContentPage.Content>
+        <ScrollView>
         <StackLayout Margin="0,0,0,0" Spacing="0">
             <controls:RokredHeader UserName="{Binding User.Name}" />
             <controls:BreadcrumbBar DataSourceContext="{Binding DataSourceContext}"/>
@@ -47,5 +48,6 @@
             <controls:RokredList x:Name="ListOpinions" 
                                  BackgroundColor="White"/>
         </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </xamForms:ReactiveContentPage>
