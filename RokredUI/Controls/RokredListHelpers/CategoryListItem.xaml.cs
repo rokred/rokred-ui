@@ -51,11 +51,12 @@ namespace RokredUI.Controls.RokredListHelpers
                 BackgroundColor = Color.Red;
                 LabelText.TextColor = Color.White;
                 ImageChevron.Source = "chevron-icon.svg";
+                IconView.Opacity = 1f;
             }
             else
             {
                 BackgroundColor = _category.IsNew ? Color.White : Color.FromHex("F5F5F5");
-                IconView.Opacity = _category.IsNew ? 1f : 0.4f;
+                IconView.Opacity = _category.IsNew ? 1f : 0.1f;
                 
                 LabelText.TextColor = Color.Black;
                 ImageChevron.Source = "chevron-dark.svg";

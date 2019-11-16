@@ -55,11 +55,12 @@ namespace RokredUI.Controls.RokredListHelpers
             if (_opinion.IsSelected)
             {
                 BackgroundColor = Color.FromHex("F2BE22");
+                IconView.Opacity = 1f;
             }
             else
             {
                 BackgroundColor = _opinion.IsNew ? Color.White : Color.FromHex("F5F5F5");
-                IconView.Opacity = _opinion.IsNew ? 1f : 0.4f;
+                IconView.Opacity = _opinion.IsNew ? 1f : 0.1f;
             } 
         }
 

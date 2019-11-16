@@ -65,11 +65,12 @@ namespace RokredUI.Controls.RokredListHelpers
             {
                 BackgroundColor = Color.FromHex("4A44F2");
                 LabelText.TextColor = Color.White;
+                IconView.Opacity = 1f;
             }
             else
             {
                 BackgroundColor = _subject.IsNew ? Color.FromHex("3E3E3E") : Color.FromHex("2A2A2A");
-                IconView.Opacity = _subject.IsNew ? 1f : 0.4f;
+                IconView.Opacity = _subject.IsNew ? 1f : 0.1f;
                 
                 LabelText.TextColor = Color.White;
             }
