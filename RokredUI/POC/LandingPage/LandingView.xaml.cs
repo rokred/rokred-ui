@@ -36,8 +36,6 @@ namespace RokredUI.POC.LandingPage
                 
                 this.Bind(ViewModel, vm => vm.SelectedChildCategory,
                     v => v.ListCategories.SelectedItem).DisposeWith(disposables);
-                
-                
             });
         }
     }

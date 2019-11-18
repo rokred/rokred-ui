@@ -45,6 +45,12 @@ namespace RokredUI.Controls.RokredListHelpers
             SetSelectedState();
         }
  
+        public void SetHasChevron(bool hasChevron)
+        {
+            ImageChevron.IsVisible = hasChevron;
+            ViewBottomLine.IsVisible = hasChevron;
+        }
+        
         private void SetSelectedState()
         {
             IconView.IsSelected = _opinion.IsSelected;

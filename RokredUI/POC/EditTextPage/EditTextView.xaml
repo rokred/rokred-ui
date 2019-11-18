@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xamForms:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                              xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+                              xmlns:vm="clr-namespace:RokredUI.POC.EditTextPage;assembly=RokredUI"
+                              xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
+                              x:Class="RokredUI.POC.EditTextPage.EditTextView"
+                              x:TypeArguments="vm:EditTextViewModel"
+                              BackgroundColor="{StaticResource OffDarkGrey}">
+    <ContentPage.Content>
+        <controls:KeyboardView VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <controls:RokredEditor x:Name="EditorText" 
+                                  Grid.Row="0" 
+                                  TextColor="{StaticResource OpinionColor}"
+                                  FontSize="25"/>
+
+            <!-- save button -->
+            <controls:RokredButton x:Name="ButtonDone" 
+                                   Grid.Row="1"
+                                   BackgroundColor="{StaticResource OpinionColor}"
+                                   Opacity="{Binding Path=IsEmptyText, Source={x:Reference EditorText}, Converter={StaticResource boolToFaded}}">
+                <StackLayout Orientation="Vertical" Spacing="0">
+                    <controls:RokredLabel
+                        IsBold="true"
+                        FontSize="15"
+                        Margin="15,25"
+                        Text="DONE"
+                        HorizontalOptions="Center"
+                        HorizontalTextAlignment="Center"
+                        VerticalOptions="Center"
+                        TextColor="Black" />
+                    <ContentView BackgroundColor="{StaticResource DarkGold}"
+                                 VerticalOptions="Start"
+                                 HorizontalOptions="Fill"
+                                 HeightRequest="1" />
+                </StackLayout>
+            </controls:RokredButton>
+        </controls:KeyboardView>
+    </ContentPage.Content>
+</xamForms:ReactiveContentPage>

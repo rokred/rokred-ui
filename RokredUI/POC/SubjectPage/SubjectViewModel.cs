@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Reactive;
 using System.Reactive.Linq;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace RokredUI.POC.SubjectPage
             CurrentSubject = base._currentContext as SubjectVmi;
             
             var opinions = base.GetOpinions(CurrentSubject);
-            Opinions = new List<IRokredListChildDataSource>(opinions);
+            Opinions = new ObservableCollection<IRokredListChildDataSource>(opinions);
 
             OpinionTappedCommand = ReactiveCommand.Create(
                 new Action<IRokredListChildDataSource>(
@@ -52,18 +53,27 @@ namespace RokredUI.POC.SubjectPage
             
             base.AddContext(vmi);
 
-            (App.Current as App).NavigateTo(new OpinionView(base.DataSourceContext, CurrentSubject, vmi as OpinionVmi));
+            (App.Current as App).NavigateTo(
+                new OpinionView(base.DataSourceContext, CurrentSubject, vmi as OpinionVmi));
         }
         
         private void OnPostNewOpinion()
         {
-            App.Current.MainPage = new NewOpinionView();
+            base.AddContext(new OpinionVmi(true));
+
+            (App.Current as App).NavigateTo(
+                new NewOpinionView(base.DataSourceContext, CurrentSubject, null, OnReturnFromNewOpinion));
         }
         
         private void SetInternalSelectedStates()
         {
             foreach (var vmi in Opinions)
                 (vmi as OpinionVmi).IsSelected = vmi == SelectedChildOpinion;
+        }
+        
+        private void OnReturnFromNewOpinion(OpinionVmi opinion)
+        {
+            Opinions.Insert(0,opinion);
         }
     }
 }

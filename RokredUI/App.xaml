@@ -4,12 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:poc="clr-namespace:RokredUI.POC;assembly=RokredUI"
     mc:Ignorable="d"
     x:Class="RokredUI.App">
     <Application.Resources>
         <ResourceDictionary>
             <Color x:Key="DarkGrey">#171717</Color>
             <Color x:Key="OffDarkGrey">#272727</Color>
+            <Color x:Key="FadedGrey">#3A3A3A</Color>
             <Color x:Key="HighlightGrey">#404040</Color>
             <Color x:Key="ReadableDarkGrey">#7F7F7F</Color>
             
@@ -22,6 +24,7 @@
             <Color x:Key="White">#ffffff</Color>
             <Color x:Key="OffWhite">#FCFCFC</Color>
             
+            <poc:BoolToFadedConverter x:Key="boolToFaded" />
             
         </ResourceDictionary>    
     </Application.Resources>

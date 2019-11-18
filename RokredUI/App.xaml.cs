@@ -26,6 +26,11 @@ namespace RokredUI
         {
             (MainPage as NavigationPage).PushAsync(page);
         }
+        
+        public void PopNavigation()
+        {
+            (MainPage as NavigationPage).PopAsync();
+        }
 
         protected override void OnStart()
         {

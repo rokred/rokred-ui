@@ -62,7 +62,7 @@ namespace RokredUI.Controls
             {
                 Device.BeginInvokeOnMainThread(() => 
                 { 
-                    _leftGradient.Opacity = (args.ScrollX > 0) ? 0.5f : 0f;
+                    _leftGradient.Opacity = (args.ScrollX > 0) ? 0.8f : 0f;
                     //  _leftGradient.FadeTo( (args.ScrollX > 0) ? 1f : 0f, 100, Easing.CubicInOut);
                 });
             };

@@ -12,6 +12,19 @@ namespace RokredUI.Controls.RokredListHelpers
 {
     public static class RokredListFactory
     {
+        public static IRokredListChildView CreateDynamicListItem(this IRokredListChildDataSource val, bool isSelected)
+        {
+            IRokredListChildView result;
+
+            if (val is CategoryVmi) result = new CategoryListItem(val as CategoryVmi);
+            else if (val is SubjectVmi) result = new SubjectListItem(val as SubjectVmi);
+            else if (val is OpinionVmi) result = new OpinionListItem(val as OpinionVmi);
+            else throw new NotImplementedException();
+            
+            result.SetHasChevron(false);
+            return result;
+        }
+        
         public static string GetImageBasedOnContext(this IRokredListChildDataSource val, bool isSelected)
         {
             var result = string.Empty;

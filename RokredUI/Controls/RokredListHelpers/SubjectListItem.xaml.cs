@@ -20,7 +20,6 @@ namespace RokredUI.Controls.RokredListHelpers
         public SubjectListItem()
         {
             InitializeComponent();
-
         }
         
         public SubjectListItem(SubjectVmi subject)
@@ -42,6 +41,11 @@ namespace RokredUI.Controls.RokredListHelpers
             SetSelectedState();
         }
         
+        public void SetHasChevron(bool hasChevron)
+        {
+            ImageChevron.IsVisible = hasChevron;
+        }
+        
         protected void BoundDataSourceChanged(SubjectVmi subject)
         {
             _subject = subject;
@@ -51,12 +55,11 @@ namespace RokredUI.Controls.RokredListHelpers
             LabelText.IsBold = subject.IsNew;
 
             // bound ones are in xaml static. not clickable
-            ImageChevron.IsVisible = false;
+            SetHasChevron(false);
             
             SetSelectedState();
         }
-
-        
+  
         private void SetSelectedState()
         {
             IconView.IsSelected = _subject.IsSelected;
@@ -74,12 +77,7 @@ namespace RokredUI.Controls.RokredListHelpers
                 
                 LabelText.TextColor = Color.White;
             }
-            
         }
-
-      
-
-
 
         public static readonly BindableProperty BoundDataSourceProperty =
             BindableProperty.Create(

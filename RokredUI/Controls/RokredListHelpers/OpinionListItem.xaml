@@ -48,7 +48,8 @@
                           VerticalOptions="Center" HorizontalOptions="Center" 
                           Margin="15,15,25,15" />
     
-    <ContentView  Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" 
+    <ContentView x:Name="ViewBottomLine"
+        Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" 
                  VerticalOptions="Start"
                  HorizontalOptions="Fill"
                  BackgroundColor="{StaticResource BrightGrey}"/>

@@ -20,12 +20,15 @@ namespace RokredUI.Controls.BreadcrumbBarHelpers
                 VerticalOptions = LayoutOptions.Fill
             };
             
+            var insideView = new RoundedView { CornerRadius = 5 };
+            
             // this stack contains the bordered text of the item plus the chevron
-            var insideView = new StackLayout
+            var insideStack = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
                 Spacing = 0, VerticalOptions = LayoutOptions.Center
             };
+            
             var label = new RokredLabel
             {
                 FontSize = 16, IsBold = true, 
@@ -53,7 +56,7 @@ namespace RokredUI.Controls.BreadcrumbBarHelpers
                     Source = context.GetImageBasedOnContext(false)
                 };
                 
-                insideView.Children.Add(categoryIcon);
+                insideStack.Children.Add(categoryIcon);
             }
             else if (context is SubjectVmi)
             {
@@ -61,19 +64,35 @@ namespace RokredUI.Controls.BreadcrumbBarHelpers
                 label.TextColor = Color.White;
                 label.Text = "S";
             }
-            else if (context is OpinionVmi)
+            else if (context is OpinionVmi && !(context as OpinionVmi).IsDirty)
             {
                 insideView.BackgroundColor = Color.FromHex("F2BE22");
                 label.TextColor = Color.Black;
                 label.Text = "O";
             }
+            else if (context is OpinionVmi && (context as OpinionVmi).IsDirty)
+            {
+                chevron.IsVisible = false;
+                label.IsVisible = false;
+                
+                insideView.BackgroundColor = Color.Transparent;
+                
+                var star = new SvgCachedImage
+                {
+                    Source = "star-icon.svg", WidthRequest = 35, HeightRequest = 35,
+                    Margin = new Thickness(0,0,0,0)
+                };
+                
+                insideStack.Children.Add(star);
+            }
             
-            insideView.Children.Add(label);
+            insideStack.Children.Add(label);
 
             mainStackLayout.HorizontalOptions = LayoutOptions.Start;
             mainStackLayout.VerticalOptions = LayoutOptions.Center;
             mainStackLayout.Margin = new Thickness(10);
-            
+
+            insideView.Content = insideStack;
             mainStackLayout.Children.Add(insideView);
             mainStackLayout.Children.Add(chevron);
 

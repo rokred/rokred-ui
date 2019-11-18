@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\KeyboardViewRenderer.cs" />
+    <Compile Include="Renderers\RoundedViewRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,6 +178,9 @@
     </Content>
     <Content Include="..\RokredUI\Resources\Images\sporting-icon.svg">
       <Link>Resources\sporting-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\star-icon.svg">
+      <Link>Resources\star-icon.svg</Link>
     </Content>
     <Content Include="..\RokredUI\Resources\Images\subject-icon-selected.svg">
       <Link>Resources\subject-icon-selected.svg</Link>

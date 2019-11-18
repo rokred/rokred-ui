@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive;
 using System.Text;
@@ -29,6 +31,11 @@ namespace RokredUI.Controls
             if (val != null)
             {
                 AddViews(val);
+            }
+
+            if (val is ObservableCollection<IRokredListChildDataSource> obs)
+            {
+                obs.CollectionChanged += ObsOnCollectionChanged;
             }
         }
 
@@ -144,8 +151,19 @@ namespace RokredUI.Controls
                 propertyChanged: (bindable, oldValue, newValue) =>
                 {
                     var thisControl = (RokredList) bindable;
+                    
+                    if (oldValue != null && oldValue is ObservableCollection<IRokredListChildDataSource> obs)
+                    {
+                        obs.CollectionChanged -= thisControl.ObsOnCollectionChanged;
+                    }
+                    
                     thisControl.SourceChanged((IList<IRokredListChildDataSource>) newValue);
                 });
+
+        private void ObsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            SourceChanged(Source);
+        }
 
         public IList<IRokredListChildDataSource> Source
         {

@@ -5,5 +5,7 @@ namespace RokredUI.Controls.RokredListHelpers
         IRokredListChildDataSource DataSource { get; }
         
         void SetIsSelected(bool isSelected);
+
+        void SetHasChevron(bool hasChevron);
     }
 }
