@@ -1,6 +1,7 @@
 ﻿using System;
 using ReactiveUI;
 using RokredUI.Controls;
+using RokredUI.POC.LandingPage;
 using RokredUI.Services;
 using RokredUI.ViewModels;
 using RokredUI.Views;
@@ -16,9 +17,19 @@ namespace RokredUI
         {
             InitializeComponent();
 
-            var appBootstrapper = new AppBootstrapper();
+        //    var appBootstrapper = new AppBootstrapper();
 
-            MainPage = new NavigationPage(new HomeView());
+        MainPage = new NavigationPage(new LandingView());
+        }
+
+        public void NavigateTo(Page page)
+        {
+            (MainPage as NavigationPage).PushAsync(page);
+        }
+        
+        public void PopNavigation()
+        {
+            (MainPage as NavigationPage).PopAsync();
         }
 
         protected override void OnStart()

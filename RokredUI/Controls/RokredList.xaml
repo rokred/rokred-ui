@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RokredUI.Controls.RokredList">
+        <StackLayout x:Name="StackChildren" Spacing="0">
+           
+        </StackLayout>
+</ContentView>

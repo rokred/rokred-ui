@@ -19,13 +19,15 @@ namespace RokredUI.Controls
 
         private void TappedCommandOnTapped(object sender, EventArgs e)
         {
-            this.ScaleTo(0.95f, 150, Easing.CubicInOut).ToObservable()
-                .ObserveOn(RxApp.MainThreadScheduler)
-                .Subscribe(async x =>
-                {
-                    await this.ScaleTo(1f, 200, Easing.CubicInOut);
-                    Command?.Execute(CommandParameter);
-                });
+             Command?.Execute(CommandParameter);
+             
+          //  this.ScaleTo(0.96f, 100, Easing.CubicInOut).ToObservable()
+          //      .ObserveOn(RxApp.MainThreadScheduler)
+         //       .Subscribe(async x =>
+         //       {
+         //           await this.ScaleTo(1f, 100, Easing.CubicInOut);
+         //           Command?.Execute(CommandParameter);
+         //       });
         }
 
         public static readonly BindableProperty CommandParameterProperty =
