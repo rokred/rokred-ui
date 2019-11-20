@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
+             x:Class="RokredUI.Controls.RokredHeader"
+             BackgroundColor="{StaticResource DarkGrey}"
+             VerticalOptions="Start"
+             HorizontalOptions="Fill">
+
+    <controls:RoundedView CornerRadius="10"
+                          BackgroundColor="{StaticResource HighlightGrey}"
+                          HorizontalOptions="Start"
+                          VerticalOptions="End"
+                          Margin="15">
+        <controls:RokredLabel
+            x:Name="LabelUserName"
+            IsBold="true"
+            FontSize="20"
+            Margin="15,10"
+            Text=""
+            TextColor="{StaticResource White}"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            VerticalOptions="Center" />
+    </controls:RoundedView>
+
+</ContentView>

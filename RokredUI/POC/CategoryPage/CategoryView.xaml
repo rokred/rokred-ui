@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<xamForms:ReactiveContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:RokredUI.POC.CategoryPage;assembly=RokredUI"
+             xmlns:xamForms="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms"
+             xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
+             x:Class="RokredUI.POC.CategoryPage.CategoryView"
+             x:TypeArguments="vm:CategoryViewModel"
+             BackgroundColor="{StaticResource OffDarkGrey}">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="0,0,0,0" Spacing="0">
+                
+            <controls:RokredHeader UserName="{Binding User.Name}" />
+            <controls:BreadcrumbBar DataSourceContext="{Binding DataSourceContext}"/>
+        
+            
+            <controls:RokredList x:Name="ListCategories" 
+                                 BackgroundColor="White"/>
+            <controls:RokredList x:Name="ListSubjects" 
+                                 BackgroundColor="White"/>
+            
+            
+         
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</xamForms:ReactiveContentPage>

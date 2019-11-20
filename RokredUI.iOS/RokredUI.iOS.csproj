@@ -66,6 +66,8 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\KeyboardViewRenderer.cs" />
+    <Compile Include="Renderers\RoundedViewRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -147,14 +149,44 @@
     <Content Include="..\RokredUI\Resources\Fonts\futura-medium.ttf">
       <Link>Resources\futura-medium.ttf</Link>
     </Content>
+    <Content Include="..\RokredUI\Resources\Images\category-icon-selected.svg">
+      <Link>Resources\category-icon-selected.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\category-icon.svg">
+      <Link>Resources\category-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\chevron-dark.svg">
+      <Link>Resources\chevron-dark.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\chevron-icon.svg">
+      <Link>Resources\chevron-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\opinion-icon-selected.svg">
+      <Link>Resources\opinion-icon-selected.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\opinion-icon.svg">
+      <Link>Resources\opinion-icon.svg</Link>
+    </Content>
     <Content Include="..\RokredUI\Resources\Images\review-icon.svg">
       <Link>Resources\review-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\shadow-breadcrumbs.png">
+      <Link>Resources\shadow-breadcrumbs.png</Link>
     </Content>
     <Content Include="..\RokredUI\Resources\Images\soapbox-icon.svg">
       <Link>Resources\soapbox-icon.svg</Link>
     </Content>
     <Content Include="..\RokredUI\Resources\Images\sporting-icon.svg">
       <Link>Resources\sporting-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\star-icon.svg">
+      <Link>Resources\star-icon.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\subject-icon-selected.svg">
+      <Link>Resources\subject-icon-selected.svg</Link>
+    </Content>
+    <Content Include="..\RokredUI\Resources\Images\subject-icon.svg">
+      <Link>Resources\subject-icon.svg</Link>
     </Content>
   </ItemGroup>
 </Project>

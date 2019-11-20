@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Grid xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:RokredUI.Controls;assembly=RokredUI"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             x:Class="RokredUI.Controls.RokredListHelpers.CategoryListItem"
+             VerticalOptions="Start"
+             HorizontalOptions="Fill"
+             RowSpacing="0"
+             ColumnSpacing="0">
+    <Grid.RowDefinitions>
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="Auto" />
+    </Grid.ColumnDefinitions>
+    
+    <controls:ColoredIcon x:Name="IconView" VerticalOptions="Center"
+                          Grid.Row="0" Grid.Column="0" Margin="25,15,15,15" />
+    
+    <controls:RokredLabel x:Name="LabelText"
+                          Grid.Row="0" Grid.Column="1"
+                          IsBold="true"
+                          FontSize="15"
+                          Margin="15"
+                          HorizontalOptions="Start" 
+                          VerticalOptions="Center" />
+    
+    <forms:SvgCachedImage x:Name="ImageChevron" 
+                          Grid.Row="0" Grid.Column="2"
+                          Source="chevron-dark.svg" 
+                          HeightRequest="15"  
+                          VerticalOptions="Center" HorizontalOptions="Center" 
+                          Margin="15,15,25,15" />
+    
+    <ContentView  Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" 
+                 VerticalOptions="Start"
+                 HorizontalOptions="Fill"
+                 BackgroundColor="{StaticResource BrightGrey}"/>
+</Grid>
