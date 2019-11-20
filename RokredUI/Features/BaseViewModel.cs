@@ -54,46 +54,114 @@ namespace RokredUI.Features
             if (parent == null)
                 return new List<CategoryVmi>()
                 {
-                    new CategoryVmi("Science"){ IsNew = true},
-                    new CategoryVmi("Sport"){ IsNew = true},
-                    new CategoryVmi("Geography"){ IsNew = true},
-                    new CategoryVmi("History"),
-                    new CategoryVmi("Let's make sure that these things wrap. For now, we will let them have no limit."),
-                    new CategoryVmi("examples to show colors"),
+                    new CategoryVmi(1, "People"){ IsNew = true},
+                    new CategoryVmi(2, "Entertainment"){ IsNew = true},
+                    new CategoryVmi(3, "Sport"){ IsNew = true},
+                    new CategoryVmi(4, "Places of the Earth"),
+                    new CategoryVmi(5, "Events in my and everyone else's lives"),
+                    new CategoryVmi( 6, "Science and Technology"),
+                    new CategoryVmi(7, "History and Literature"),
                 };
-            else
+            else if (parent.Id == 1)
                 return new List<CategoryVmi>()
                 {
-                    new CategoryVmi("Child Category 1"){ IsNew = true},
-                    new CategoryVmi("Child Category 2"){ IsNew = true},
-                    new CategoryVmi("Child Category 3"){ IsNew = true},
-                    new CategoryVmi("Child Category 4"){ },
-                    new CategoryVmi("Child Category 5"){ },
-                 
+                    new CategoryVmi(8, parent.Id, "People in Entertainment") {IsNew = true},
+                    new CategoryVmi(9, parent.Id, "People in Business") {IsNew = true},
+                    new CategoryVmi(10, parent.Id, "All About Me") {IsNew = true},
                 };
+            else if (parent.Id == 2)
+                return new List<CategoryVmi>()
+                {
+                    new CategoryVmi(11, parent.Id, "Movies and TV") {IsNew = true},
+                    new CategoryVmi(12, parent.Id, "Music") {IsNew = true},
+                };
+            else if (parent.Id == 3)
+                return new List<CategoryVmi>()
+                {
+                    new CategoryVmi(13, parent.Id, "MMA") {IsNew = true},
+                };
+            else
+            {
+                return new List<CategoryVmi>();
+            }
         }
 
         protected List<SubjectVmi> GetSubjects(CategoryVmi currentCategory)
         {
-            return new List<SubjectVmi>()
-            {
-                new SubjectVmi("Some SUBJECT in this category"){ IsNew = true},
-                new SubjectVmi("these are static for now"){ IsNew = true},
-                new SubjectVmi("hopefully will have some real ones soon"){ IsNew = true},
-                new SubjectVmi("Let's make sure that these things wrap. For now, we will let them have no limit."),
-                new SubjectVmi("examples to show colors"),
-            };
+            if (currentCategory.Id == 8)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Sexiest Man Alive 2019 - John Legend") {IsNew = true},
+                    new SubjectVmi("Favourite Actor / Actress") {IsNew = true},
+                };
+            if (currentCategory.Id == 9)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Elon Musk") {IsNew = true},
+                    new SubjectVmi("Richard Branson") {IsNew = true},
+                };
+            if (currentCategory.Id == 10)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Self-Development and how to win at life") {IsNew = true},
+                };
+            if (currentCategory.Id == 11)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Favourite Movies") {IsNew = true},
+                    new SubjectVmi("Movies that stuck with me") {IsNew = true},
+                };
+            if (currentCategory.Id == 12)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Current favourite song") {IsNew = true},
+                };
+            if (currentCategory.Id == 3)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Favourite Sport") {IsNew = true},
+                };
+            if (currentCategory.Id == 13)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Upcoming Fights") {IsNew = true},
+                    new SubjectVmi("Favourite Fighter") {IsNew = true},
+                    new SubjectVmi("Dream Matchups") {IsNew = true},
+                };
+            if (currentCategory.Id == 4)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Summer vs. Winter") {IsNew = true},
+                    new SubjectVmi("Best Beaches") {IsNew = true},
+                    new SubjectVmi("Worst place to live") {IsNew = true},
+                    new SubjectVmi("Best place to live") {IsNew = true},
+                };
+            if (currentCategory.Id == 5)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Christmas Time") {IsNew = true},
+                    new SubjectVmi("Commuting to work") {IsNew = true},
+                    new SubjectVmi("Most embarrassing moment") {IsNew = true},
+                };
+            if (currentCategory.Id == 6)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("Colonising the moon. The Lunar Gateway.") {IsNew = true},
+                    new SubjectVmi("iPhone vs. Android") {IsNew = true},
+                };
+            if (currentCategory.Id == 7)
+                return new List<SubjectVmi>()
+                {
+                    new SubjectVmi("When did humanity really start?") {IsNew = true},
+                    new SubjectVmi("Best books and why") {IsNew = true},
+                };
+            else return new List<SubjectVmi>();
         }
 
         protected List<OpinionVmi> GetOpinions(SubjectVmi currentSubject)
         {
             return new List<OpinionVmi>()
             {
-                new OpinionVmi("Some OPINION here"){ IsNew = true},
-                new OpinionVmi("These should be arranged by date", "This is the body"){ IsNew = true},
-                new OpinionVmi("hopefully will have some real ones soon"){ IsNew = true},
-                new OpinionVmi("Let's make sure that these things wrap. For now, we will let them have no limit."),
-                new OpinionVmi("examples to show colors", "This has a body"),
             };
         }
         
@@ -101,9 +169,6 @@ namespace RokredUI.Features
         {
             return new List<OpinionVmi>()
             {
-                new OpinionVmi("From a PARENT OPINION", "This is the body of that opinion."){ IsNew = true },
-                new OpinionVmi("Some OPINION here"){ IsNew = true},
-                new OpinionVmi("These should be arranged by date. I have no idea how we will handle super long ones for now.", "So I will just let them be as long as they wish. But I guess we should concat them in the list"){},
             };
         }
 
@@ -118,8 +183,6 @@ namespace RokredUI.Features
            }
            
            DataSourceContext.ContextItems.Add(item);
-        }
-        
-        
+        } 
     }
 }
