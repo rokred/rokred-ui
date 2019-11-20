@@ -1,12 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Input;
-using FFImageLoading.Svg.Forms;
-using RokredUI.POC.CategoryPage;
-using RokredUI.POC.OpinionPage;
-using RokredUI.POC.SubjectPage;
-using Xamarin.Forms;
+using RokredUI.Features.CategoryPage;
+using RokredUI.Features.OpinionPage;
+using RokredUI.Features.SubjectPage;
 
 namespace RokredUI.Controls.RokredListHelpers
 {

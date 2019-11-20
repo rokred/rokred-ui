@@ -1,16 +1,13 @@
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Reactive;
-using System.Text;
-using System.Threading.Tasks;
 using ReactiveUI;
 using RokredUI.Controls.RokredListHelpers;
-using RokredUI.POC.CategoryPage;
-using RokredUI.POC.OpinionPage;
-using RokredUI.POC.SubjectPage;
+using RokredUI.Features.CategoryPage;
+using RokredUI.Features.OpinionPage;
+using RokredUI.Features.SubjectPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

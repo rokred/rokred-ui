@@ -1,9 +1,8 @@
 using System.Linq;
 using FFImageLoading.Forms;
-using FFImageLoading.Svg.Forms;
 using RokredUI.Controls.BreadcrumbBarHelpers;
 using RokredUI.Controls.RokredListHelpers;
-using RokredUI.POC;
+using RokredUI.Features;
 using Xamarin.Forms;
 
 namespace RokredUI.Controls

@@ -1,11 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RokredUI.POC.CategoryPage;
-using RokredUI.POC.OpinionPage;
-using RokredUI.POC.SubjectPage;
+using RokredUI.Features.OpinionPage;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
