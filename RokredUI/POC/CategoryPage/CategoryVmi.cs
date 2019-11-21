@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Dynamic;
 using RokredUI.Controls.RokredListHelpers;
 
@@ -10,6 +11,8 @@ namespace RokredUI.POC.CategoryPage
         public bool IsSelected { get; set; }
         
         public string Name { get; }
+        
+        public List<CategoryVmi> UnreadCategories => 
 
         public CategoryVmi(string name)
         {

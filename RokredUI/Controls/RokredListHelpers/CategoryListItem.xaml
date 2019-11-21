@@ -12,6 +12,7 @@
     <Grid.RowDefinitions>
         <RowDefinition Height="*" />
         <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
     </Grid.RowDefinitions>
     <Grid.ColumnDefinitions>
         <ColumnDefinition Width="Auto" />
@@ -19,9 +20,11 @@
         <ColumnDefinition Width="Auto" />
     </Grid.ColumnDefinitions>
     
+    <!-- Icon on left for category -->
     <controls:ColoredIcon x:Name="IconView" VerticalOptions="Center"
                           Grid.Row="0" Grid.Column="0" Margin="25,15,15,15" />
     
+    <!-- Category name label -->
     <controls:RokredLabel x:Name="LabelText"
                           Grid.Row="0" Grid.Column="1"
                           IsBold="true"
@@ -30,6 +33,7 @@
                           HorizontalOptions="Start" 
                           VerticalOptions="Center" />
     
+    <!-- chevron -->
     <forms:SvgCachedImage x:Name="ImageChevron" 
                           Grid.Row="0" Grid.Column="2"
                           Source="chevron-dark.svg" 
@@ -37,7 +41,10 @@
                           VerticalOptions="Center" HorizontalOptions="Center" 
                           Margin="15,15,25,15" />
     
-    <ContentView  Grid.Row="1" Grid.ColumnSpan="3" HeightRequest="1" 
+    
+    
+    <!-- line at the bottom -->
+    <ContentView  Grid.Row="2" Grid.ColumnSpan="3" HeightRequest="1" 
                  VerticalOptions="Start"
                  HorizontalOptions="Fill"
                  BackgroundColor="{StaticResource BrightGrey}"/>
