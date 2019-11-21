@@ -1,0 +1,43 @@
+<<<<<<< HEAD:RokredUI/POC/CategoryPage/CategoryVmi.cs
+using System.Collections.Generic;
+using System.Dynamic;
+=======
+>>>>>>> 28770e9dc35df51209aba7be3ac51d7abf968970:RokredUI/Features/CategoryPage/CategoryVmi.cs
+using RokredUI.Controls.RokredListHelpers;
+
+namespace RokredUI.Features.CategoryPage
+{
+    public class CategoryVmi : IRokredListChildDataSource
+    {
+        public  int Id { get; set; }
+        public int ParentId { get; set; }
+        
+        public bool IsNew { get; set; }
+        
+        public bool IsSelected { get; set; }
+        
+        public string Name { get; }
+        
+        public List<CategoryVmi> UnreadCategories => 
+
+        public CategoryVmi(int id, string name)
+        {
+            Name = name;
+            
+            Id = id;
+        }
+        
+        public CategoryVmi(int id, int parentId, string name)
+        {
+            Name = name;
+            
+            Id = id;
+            ParentId = parentId;
+        }
+
+        public override string ToString()
+        {
+            return Name ?? string.Empty;
+        }
+    }
+}

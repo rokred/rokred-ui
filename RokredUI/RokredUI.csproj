@@ -26,7 +26,7 @@
     <EmbeddedResource Include="Resources\Images\sporting-icon.svg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Backend\" />
-    <Folder Include="Views\Extensions\" />
+    <Folder Include="Models" />
+    <Folder Include="Services" />
   </ItemGroup>
 </Project>

@@ -43,3 +43,4 @@ msbuild.wrn
 
 # Visual Studio 2015
 .vs/
+RokredUI.Android/Resources/Resource.designer.cs

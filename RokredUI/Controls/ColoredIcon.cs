@@ -1,8 +1,7 @@
 using FFImageLoading.Svg.Forms;
-using RokredUI.Controls.RokredListHelpers;
-using RokredUI.POC.CategoryPage;
-using RokredUI.POC.OpinionPage;
-using RokredUI.POC.SubjectPage;
+using RokredUI.Features.CategoryPage;
+using RokredUI.Features.OpinionPage;
+using RokredUI.Features.SubjectPage;
 using Xamarin.Forms;
 
 namespace RokredUI.Controls
