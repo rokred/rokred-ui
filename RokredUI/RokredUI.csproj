@@ -11,22 +11,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="ReactiveUI.Fody" Version="9.19.5" />
-    <PackageReference Include="ReactiveUI.XamForms" Version="9.19.5" />
-    <PackageReference Include="Refit" Version="4.7.9" />
-    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.0" />
+    <PackageReference Include="ReactiveUI.Fody" Version="10.5.31" />
+    <PackageReference Include="ReactiveUI.XamForms" Version="10.5.31" />
+    <PackageReference Include="Refit" Version="5.0.23" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.581479" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="4.3.0.991211" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.1" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="Resources\Images\sporting-icon.svg" />
     <EmbeddedResource Include="Resources\Images\sporting-icon.svg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models" />
-    <Folder Include="Services" />
   </ItemGroup>
 </Project>

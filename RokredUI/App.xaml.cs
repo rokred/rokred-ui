@@ -1,4 +1,6 @@
 ﻿using RokredUI.Features.LandingPage;
+using RokredUI.Services;
+using Splat;
 using Xamarin.Forms;
 
 namespace RokredUI
@@ -8,10 +10,10 @@ namespace RokredUI
         public App()
         {
             InitializeComponent();
+            
+            var appBootstrapper = new AppBootstrapper();
 
-        //    var appBootstrapper = new AppBootstrapper();
-
-        MainPage = new NavigationPage(new LandingView());
+            MainPage = new NavigationPage(new LandingView());
         }
 
         public void NavigateTo(Page page)
@@ -39,4 +41,18 @@ namespace RokredUI
             // Handle when your app resumes
         }
     }
+
+    public class AppBootstrapper
+    {
+        public AppBootstrapper()
+        {
+            RegisterServices();
+        }
+
+        private static void RegisterServices()
+        {
+            Locator.CurrentMutable.RegisterLazySingleton(() => new RokredService(), typeof(IRokredService));
+        }
+    }
+
 }
