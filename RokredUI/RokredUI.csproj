@@ -13,7 +13,7 @@
   <ItemGroup>
     <PackageReference Include="ReactiveUI.Fody" Version="10.5.31" />
     <PackageReference Include="ReactiveUI.XamForms" Version="10.5.31" />
-    <PackageReference Include="Refit" Version="5.0.23" />
+    <PackageReference Include="Refit" Version="7.2.22" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1" />
     <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
